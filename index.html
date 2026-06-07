@@ -574,23 +574,60 @@ body::before {
 .about-text p { margin-bottom: 1.5rem; }
 .about-stats {
   display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 1.5rem; margin: 3rem 0;
+  gap: 0; margin: 3rem 0;
   padding-top: 2rem;
   border-top: 1px solid var(--border);
 }
+.about-stats > div {
+  position: relative;
+  padding: 1.5rem 1rem 1.2rem;
+  text-align: center;
+  cursor: default;
+  transition: background 0.35s;
+}
+.about-stats > div:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 20%; right: 0;
+  height: 60%; width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  opacity: 0.35;
+}
+.about-stats > div:hover {
+  background: rgba(196,147,92,0.06);
+}
 .stat-num {
   font-family: 'Cinzel Decorative', serif;
-  font-size: 1.8rem; color: var(--gold);
+  font-size: 2rem; color: var(--gold);
   display: block; line-height: 1;
+  transition: transform 0.3s, text-shadow 0.3s;
+  text-shadow: 0 0 0px var(--gold);
+}
+.about-stats > div:hover .stat-num {
+  transform: scale(1.08);
+  text-shadow: 0 0 18px rgba(196,147,92,0.55);
 }
 .stat-label {
   font-family: 'Cinzel', serif;
-  font-size: 0.55rem;
-  letter-spacing: 0.28em;
-  color: rgba(250,245,236,0.35);
+  font-size: 0.52rem;
+  letter-spacing: 0.3em;
+  color: rgba(250,245,236,0.38);
   text-transform: uppercase;
-  display: block; margin-top: 6px;
+  display: block; margin-top: 8px;
+  transition: color 0.3s;
 }
+.about-stats > div:hover .stat-label {
+  color: rgba(196,147,92,0.7);
+}
+@keyframes stat-pop {
+  from { opacity:0; transform: translateY(14px) scale(0.85); }
+  to   { opacity:1; transform: translateY(0) scale(1); }
+}
+.about-stats.in-view > div {
+  animation: stat-pop 0.55s cubic-bezier(0.22,1,0.36,1) both;
+}
+.about-stats.in-view > div:nth-child(2) { animation-delay: 0.12s; }
+.about-stats.in-view > div:nth-child(3) { animation-delay: 0.24s; }
 
 /* ─── DIFF (cream section) ──────────────────────────── */
 .diff {
@@ -1450,5 +1487,48 @@ document.addEventListener("keydown",function(e){ const lb=document.getElementByI
 <a href="tel:+3210241755" class="float-call" aria-label="Appeler">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 16.5z"/></svg>
 </a>
+<script>
+/* Stats – apparition + compteur numérique */
+(function(){
+  var statsEl = document.querySelector('.about-stats');
+  if (!statsEl) return;
+  var nums = statsEl.querySelectorAll('.stat-num');
+  var animated = false;
+
+  function countUp(el, target, suffix, duration) {
+    var start = 0, startTime = null;
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(ease * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting && !animated) {
+        animated = true;
+        statsEl.classList.add('in-view');
+        nums.forEach(function(num){
+          var txt = num.textContent.trim();
+          if (/^\d+$/.test(txt)) {
+            countUp(num, parseInt(txt), '', 1600);
+          } else if (txt === '100%') {
+            countUp(num, 100, '%', 1400);
+          }
+          /* étoiles et autres textes restent tels quels */
+        });
+        io.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+
+  io.observe(statsEl);
+})();
+</script>
 </body>
 </html>
