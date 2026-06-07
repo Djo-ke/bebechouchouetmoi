@@ -205,6 +205,47 @@ footer{background:var(--noir2);border-top:1px solid rgba(201,168,76,0.15);paddin
   </blockquote>
 </div>
 
+<!-- ── HORAIRES ─────────────────────────────────────── -->
+<style>
+.horaires{background:var(--or);padding:5.5rem 8%;display:grid;grid-template-columns:1.2fr 1px 1fr;gap:5rem;align-items:center;}
+.horaires-sep{background:rgba(14,12,9,0.15);}
+.horaires-title{font-family:'Cinzel',serif;font-size:clamp(1.8rem,3vw,2.8rem);color:var(--noir);font-weight:400;line-height:1.2;margin-bottom:0.8rem;}
+.horaires-sub{font-family:'Cinzel',serif;font-style:italic;font-size:1.1rem;color:rgba(14,12,9,0.55);}
+.horaires-addr{margin-top:1.5rem;display:flex;align-items:flex-start;gap:0.75rem;}
+.horaires-addr p{font-size:0.95rem;color:rgba(14,12,9,0.65);line-height:1.7;}
+.horaires-addr a{color:var(--noir);text-decoration:none;font-family:'Cinzel',serif;font-size:0.8rem;letter-spacing:0.1em;}
+.horaires-table{width:100%;}
+.horaires-table tr{border-bottom:1px solid rgba(14,12,9,0.1);}
+.horaires-table tr:last-child{border-bottom:none;}
+.horaires-table td{font-size:1rem;padding:0.55rem 0;color:var(--noir);}
+.horaires-table td:first-child{color:rgba(14,12,9,0.55);font-style:italic;}
+.horaires-table td:last-child{text-align:right;font-weight:700;color:#000;}
+.horaires-table tr.closed td{opacity:0.35;}
+@media(max-width:768px){.horaires{grid-template-columns:1fr;gap:3rem;}.horaires-sep{display:none;}}
+</style>
+<div class="horaires">
+  <div>
+    <h2 class="horaires-title">Horaires<br>d'Ouverture</h2>
+    <p class="horaires-sub">Réservation conseillée</p>
+    <div class="horaires-addr">
+      <div>
+        <p>Rue de Bruxelles 4, 1300 Wavre<br>
+        <a href="tel:+3210241755">010 24 17 55</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="horaires-sep"></div>
+  <table class="horaires-table">
+    <tr><td>Lundi</td><td>18h – 22h</td></tr>
+    <tr class="closed"><td>Mardi</td><td>Fermé</td></tr>
+    <tr><td>Mercredi</td><td>11h–15h · 18h–22h</td></tr>
+    <tr><td>Jeudi</td><td>18h – 22h</td></tr>
+    <tr><td>Vendredi</td><td>18h – 22h</td></tr>
+    <tr><td>Samedi</td><td>11h–15h · 18h–22h</td></tr>
+    <tr><td>Dimanche</td><td>11h–15h · 18h–22h</td></tr>
+  </table>
+</div>
+
 <footer>
   <div class="footer-top">
     <div class="footer-brand"><h3>Bébé, Chouchou et Moi</h3><p>Restaurant-Brasserie au cœur de Wavre. Une cuisine franco-belge préparée avec passion depuis 2021.</p></div>
