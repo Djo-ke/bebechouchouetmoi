@@ -1592,7 +1592,7 @@ document.addEventListener("keydown",function(e){ const lb=document.getElementByI
 })();
 </script>
 
-<!-- ── CHATBOT IA LOCAL INTELLIGENT ─────────────────────── -->
+<!-- ── CHATBOT IA AVEC BARESTHO INTEGRATION ─────────────────────── -->
 <div id="chat-widget">
   <div id="chat-toggle" class="chat-toggle" aria-label="Ouvrir le chat">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -1600,7 +1600,14 @@ document.addEventListener("keydown",function(e){ const lb=document.getElementByI
   <div id="chat-box" class="chat-box">
     <div class="chat-header">
       <div class="chat-header-content">
-        <svg class="chat-icon" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-6 0-8 3-8 3v3h16v-3s-2-3-8-3z"/></svg>
+        <svg class="chat-icon" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="35" r="20" fill="#f0dba8" stroke="#c8a45a" stroke-width="2"/>
+          <path d="M 30 35 Q 30 15 50 15 Q 70 15 70 35" fill="#8B4513" stroke="#c8a45a" stroke-width="2"/>
+          <circle cx="44" cy="32" r="2" fill="#0e0c09"/>
+          <circle cx="56" cy="32" r="2" fill="#0e0c09"/>
+          <path d="M 44 38 Q 50 40 56 38" stroke="#0e0c09" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <rect x="35" y="55" width="30" height="25" fill="#c8a45a" stroke="#c8a45a" stroke-width="2" rx="3"/>
+        </svg>
         <h3>Assistant IA</h3>
       </div>
       <button id="chat-close" class="chat-close">&times;</button>
@@ -1609,6 +1616,16 @@ document.addEventListener("keydown",function(e){ const lb=document.getElementByI
     <div class="chat-input-wrap">
       <input type="text" id="chat-input" placeholder="Vos questions..." />
       <button id="chat-send" class="chat-send">→</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODALE BARESTHO -->
+<div id="barestho-modal" class="barestho-modal">
+  <div class="barestho-modal-content">
+    <button id="barestho-close" class="barestho-close">&times;</button>
+    <div class="barestho-frame-wrap">
+      <iframe src="https://reservation.barestho.com/bebechouchouetmoi" title="Réservation" allowtransparency="true" loading="lazy"></iframe>
     </div>
   </div>
 </div>
@@ -1637,8 +1654,6 @@ document.addEventListener("keydown",function(e){ const lb=document.getElementByI
   transition: transform 0.2s, box-shadow 0.2s;
   position: relative !important;
   z-index: 9999 !important;
-  visibility: visible !important;
-  opacity: 1 !important;
 }
 
 .chat-toggle:hover {
@@ -1689,9 +1704,8 @@ document.addEventListener("keydown",function(e){ const lb=document.getElementByI
 }
 
 .chat-icon {
-  width: 28px;
-  height: 28px;
-  color: var(--gold);
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
 }
 
@@ -1732,12 +1746,16 @@ document.addEventListener("keydown",function(e){ const lb=document.getElementByI
   line-height: 1.5;
   max-width: 85%;
   word-wrap: break-word;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
 }
 
 .chat-message.user {
   background: var(--gold);
   color: var(--ink);
   align-self: flex-end;
+  flex-direction: row-reverse;
 }
 
 .chat-message.assistant {
@@ -1747,9 +1765,14 @@ document.addEventListener("keydown",function(e){ const lb=document.getElementByI
   border-left: 2px solid var(--gold);
 }
 
-.chat-message.loading {
-  font-style: italic;
-  color: var(--muted);
+.chat-message.assistant .message-text {
+  flex: 1;
+}
+
+.chat-message.assistant .message-avatar {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
 }
 
 .chat-input-wrap {
@@ -1795,14 +1818,78 @@ document.addEventListener("keydown",function(e){ const lb=document.getElementByI
   background: var(--gold2);
 }
 
+/* BARESTHO MODAL */
+.barestho-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.barestho-modal.open {
+  display: flex;
+}
+
+.barestho-modal-content {
+  background: var(--ink2);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 900px;
+  height: 80vh;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+}
+
+.barestho-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--gold);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10001;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.barestho-close:hover {
+  background: var(--gold2);
+}
+
+.barestho-frame-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.barestho-frame-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
 @media (max-width: 640px) {
   .chat-box {
     width: 320px;
     height: 450px;
   }
   
-  .chat-message {
-    max-width: 90%;
+  .barestho-modal-content {
+    height: 90vh;
   }
 }
 </style>
@@ -1815,90 +1902,46 @@ document.addEventListener("keydown",function(e){ const lb=document.getElementByI
   const chatInput = document.getElementById("chat-input");
   const chatSend = document.getElementById("chat-send");
   const chatMessages = document.getElementById("chat-messages");
+  const baresthoModal = document.getElementById("barestho-modal");
+  const baresthoClose = document.getElementById("barestho-close");
 
   const responses = {
-    reservation: [
-      "Pour reserver une table, appelez-nous au 010 24 17 55. Vous pouvez aussi passer directement au restaurant.",
-      "Reservations par telephone au 010 24 17 55. Nous accueillons tous les jours sauf le lundi.",
-      "Vous pouvez reserver par telephone: 010 24 17 55 ou venir directement au restaurant."
-    ],
-    horaires: [
-      "Nos horaires: Mardi-Jeudi 11h30-14h30 et 18h-22h30. Vendredi-Samedi 11h30-14h30 et 18h-23h. Dimanche 12h-15h et 18h-22h. Ferme le lundi.",
-      "Lundi: Ferme. Mardi-Jeudi: 11h30-14h30 et 18h-22h30. Vendredi-Samedi: 11h30-14h30 et 18h-23h. Dimanche: 12h-15h et 18h-22h.",
-      "Ouverts tous les jours sauf lundi. Appelez 010 24 17 55 pour plus de details."
-    ],
-    menu: [
-      "Consultez notre menu complet sur la page Menu du site. Nous proposons des plats belges traditionnels et cuisine francaise de qualite.",
-      "Notre menu offre une belle selection de plats belges et francais. Pour les details, visitez la page Menu du site.",
-      "Menus disponibles: Carte principale, Vins, Boissons. Consultez le site ou appelez 010 24 17 55."
-    ],
-    allergie: [
-      "Pour les allergies et restrictions alimentaires, appelez-nous au 010 24 17 55. Notre equipe peut adapter les plats.",
-      "Vegetarien, vegan, allergies: contactez-nous au 010 24 17 55 pour les options disponibles.",
-      "Nous pouvons adapter les menus selon vos restrictions. Veuillez appeler 010 24 17 55."
-    ],
-    prix: [
-      "Nos prix sont competitifs. Consultez le menu pour les tarifs. Pour des questions specifiques, appelez 010 24 17 55.",
-      "Les tarifs varient selon les plats. Visitez la page Menu pour voir les prix ou appelez-nous.",
-      "Nous proposons des menus a tous les budgets. Appelez pour les offres speciales: 010 24 17 55."
-    ],
-    contact: [
-      "Telephone: 010 24 17 55. Nous sommes a Wavre, Belgique. Consultez la page Contact pour l'adresse exacte.",
-      "Pour nous contacter: 010 24 17 55 (telephone) ou visitez la page Contact du site.",
-      "Contact direct: 010 24 17 55. Pour l'adresse et plus d'infos, consultez la page Contact."
-    ],
-    wifi: [
-      "Oui, nous disposons du WiFi gratuit pour notre clientele. Demandez le mot de passe a l'arrivee.",
-      "WiFi gratuit disponible. Demandez simplement le code d'acces au personnel."
-    ],
-    parking: [
-      "Un parking est disponible a proximite du restaurant. Pour les details, appelez 010 24 17 55.",
-      "Parking facilement accessible pres du restaurant. Appelez pour les details si necessaire."
-    ],
-    groupe: [
-      "Pour les reservations de groupe ou evenements, appelez 010 24 17 55 pour discuter des arrangements.",
-      "Nous accueillons les groupes et seminaires. Contactez-nous au 010 24 17 55 pour les tarifs.",
-      "Vous organisez un evenement? Appelez 010 24 17 55 pour les details et offres speciaux groupes."
-    ],
-    ambiance: [
-      "Notre restaurant offre une ambiance chaleureuse et elegante, parfaite pour tous vos moments.",
-      "Ambiance accueillante et raffinee pour un bon moment en famille ou entre amis."
-    ],
-    default: [
-      "Bonjour! Je suis l'assistant IA de Bebes, Chouchou et Moi. Vous avez des questions sur les reservations, horaires, menu, ou allergies? Je peux vous aider!",
-      "Comment puis-je vous aider? Vous pouvez me poser des questions sur le restaurant, le menu, les horaires, ou appeler 010 24 17 55."
-    ]
+    horaires: ["Nos horaires: Mardi-Jeudi 11h30-14h30 et 18h-22h30. Vendredi-Samedi 11h30-14h30 et 18h-23h. Dimanche 12h-15h et 18h-22h. Ferme le lundi."],
+    menu: ["Consultez notre menu complet sur la page Menu. Nous proposons des plats belges et francais de qualite."],
+    contact: ["Telephone: 010 24 17 55. Vous etes a Wavre, Belgique."],
+    default: ["Bonjour! Je suis l'assistant IA de Bebes, Chouchou et Moi. Comment puis-je vous aider?"]
   };
 
-  function getRandomResponse(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
+  function createAvatarSVG() {
+    return '<svg class="message-avatar" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="35" r="20" fill="#f0dba8" stroke="#c8a45a" stroke-width="2"/><path d="M 30 35 Q 30 15 50 15 Q 70 15 70 35" fill="#8B4513" stroke="#c8a45a" stroke-width="2"/><circle cx="44" cy="32" r="2" fill="#0e0c09"/><circle cx="56" cy="32" r="2" fill="#0e0c09"/><path d="M 44 38 Q 50 40 56 38" stroke="#0e0c09" stroke-width="2" fill="none" stroke-linecap="round"/><rect x="35" y="55" width="30" height="25" fill="#c8a45a" stroke="#c8a45a" stroke-width="2" rx="3"/></svg>';
+  }
+
+  function addAssistantMessage(text) {
+    const msg = document.createElement("div");
+    msg.className = "chat-message assistant";
+    msg.innerHTML = createAvatarSVG() + '<div class="message-text">' + text + '</div>';
+    chatMessages.appendChild(msg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
   function getResponse(text) {
     const lower = text.toLowerCase();
     
     if (lower.includes("reserv") || lower.includes("table") || lower.includes("booking")) {
-      return getRandomResponse(responses.reservation);
-    } else if (lower.includes("horaire") || lower.includes("heure") || lower.includes("ouvert") || lower.includes("ferme") || lower.includes("closed")) {
-      return getRandomResponse(responses.horaires);
-    } else if (lower.includes("menu") || lower.includes("plat") || lower.includes("manger") || lower.includes("food") || lower.includes("carte")) {
-      return getRandomResponse(responses.menu);
-    } else if (lower.includes("allergie") || lower.includes("gluten") || lower.includes("vegan") || lower.includes("vegetarien") || lower.includes("intoler")) {
-      return getRandomResponse(responses.allergie);
-    } else if (lower.includes("prix") || lower.includes("cout") || lower.includes("tarif") || lower.includes("combien") || lower.includes("price")) {
-      return getRandomResponse(responses.prix);
-    } else if (lower.includes("contact") || lower.includes("adresse") || lower.includes("lieu") || lower.includes("localis") || lower.includes("where")) {
-      return getRandomResponse(responses.contact);
-    } else if (lower.includes("wifi") || lower.includes("internet")) {
-      return getRandomResponse(responses.wifi);
-    } else if (lower.includes("parking") || lower.includes("voiture") || lower.includes("car")) {
-      return getRandomResponse(responses.parking);
-    } else if (lower.includes("groupe") || lower.includes("event") || lower.includes("seminaire") || lower.includes("party")) {
-      return getRandomResponse(responses.groupe);
-    } else if (lower.includes("ambiance") || lower.includes("atmosphere") || lower.includes("environnem")) {
-      return getRandomResponse(responses.ambiance);
+      return null;
+    } else if (lower.includes("horaire") || lower.includes("heure") || lower.includes("ouvert")) {
+      return responses.horaires[0];
+    } else if (lower.includes("menu") || lower.includes("plat")) {
+      return responses.menu[0];
+    } else if (lower.includes("contact") || lower.includes("adresse") || lower.includes("telephone")) {
+      return responses.contact[0];
     }
-    return getRandomResponse(responses.default);
+    return responses.default[0];
+  }
+
+  function openBaresthoReservation() {
+    baresthoModal.classList.add("open");
+    addAssistantMessage("Ouvrez Barestho pour faire votre reservation. A bientot!");
   }
 
   chatToggle.addEventListener("click", function() {
@@ -1907,6 +1950,16 @@ document.addEventListener("keydown",function(e){ const lb=document.getElementByI
   
   chatClose.addEventListener("click", function() {
     chatBox.classList.remove("open");
+  });
+
+  baresthoClose.addEventListener("click", function() {
+    baresthoModal.classList.remove("open");
+  });
+
+  baresthoModal.addEventListener("click", function(e) {
+    if (e.target === baresthoModal) {
+      baresthoModal.classList.remove("open");
+    }
   });
 
   function sendMessage() {
@@ -1919,27 +1972,26 @@ document.addEventListener("keydown",function(e){ const lb=document.getElementByI
     chatMessages.appendChild(userMsg);
     chatInput.value = "";
 
-    const loadingMsg = document.createElement("div");
-    loadingMsg.className = "chat-message assistant loading";
-    loadingMsg.textContent = "Reflexion...";
-    chatMessages.appendChild(loadingMsg);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-
     setTimeout(function() {
-      loadingMsg.remove();
-      const response = getResponse(text);
-      const assistantMsg = document.createElement("div");
-      assistantMsg.className = "chat-message assistant";
-      assistantMsg.textContent = response;
-      chatMessages.appendChild(assistantMsg);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }, 500);
+      const lower = text.toLowerCase();
+      
+      if (lower.includes("reserv") || lower.includes("table") || lower.includes("booking")) {
+        openBaresthoReservation();
+      } else {
+        const response = getResponse(text);
+        if (response) {
+          addAssistantMessage(response);
+        }
+      }
+    }, 300);
   }
 
   chatSend.addEventListener("click", sendMessage);
   chatInput.addEventListener("keydown", function(e) {
     if (e.key === "Enter") sendMessage();
   });
+
+  addAssistantMessage("Bienvenue chez Bebes, Chouchou et Moi! Vous pouvez me poser des questions ou faire une reservation.");
 })();
 </script>
 
