@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carte des Boissons — Bébé, Chouchou et Moi</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title><span data-i18n="t1">Carte des Boissons — Bébé, Chouchou et Moi</span></title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&amp;family=Cinzel:wght@400;500;600&amp;family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&amp;display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -106,277 +107,262 @@ footer{background:var(--ink2);border-top:1px solid var(--border);padding:4rem 8%
   .dish-price{align-self:flex-start;}
 }
 </style>
-</head>
+<style>
+.lang-switcher{display:inline-flex;gap:0.5rem;margin-left:1.5rem;align-items:center;}
+.lang-switcher a{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(250,245,236,0.5);text-decoration:none;padding:0.3rem 0.5rem;border:1px solid transparent;transition:all 0.2s;}
+.lang-switcher a:hover{color:#c8a45a;}
+.lang-switcher a.active{color:#c8a45a;border-color:rgba(200,164,90,0.4);}
+</style><style>
+.lang-btn{text-decoration:none;color:inherit;padding:2px 6px;border-radius:3px;cursor:pointer;}
+.lang-btn.active{font-weight:bold;text-decoration:underline;}
+</style></head>
 <body>
-
 <!-- NAV -->
 <nav id="nav">
-  <a href="index.html" class="nav-brand nav-brand-logo">
-    <span class="nav-brand-main">Bébé, Chouchou et Moi</span>
-    <span class="nav-brand-sub">Brasserie - Restaurant</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="carte.html">Carte</a></li>
-    <li><a href="carte_boissons.html" class="active">Boissons</a></li>
-    <li><a href="carte_vins.html">Vins</a></li>
-  </ul>
-  <a href="#" class="nav-resa">Réserver</a>
-  <button class="nav-burger" id="burger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
+<a class="nav-brand nav-brand-logo" href="index.html">
+<span class="nav-brand-main">Bébé, Chouchou et Moi</span>
+<span class="nav-brand-sub">Brasserie - Restaurant</span>
+</a>
+<ul class="nav-links">
+<li><a href="index.html"><span data-i18n="t2">Accueil</span></a></li>
+<li><a href="carte.html"><span data-i18n="t3">Carte</span></a></li>
+<li><a class="active" href="#"><span data-i18n="t4">Boissons</span></a></li>
+<div class="lang-switcher" style="display:inline-flex;gap:8px;margin-left:15px;align-items:center;font-size:13px;">
+<a class="lang-btn" data-lang="fr" href="#">FR</a>
+<span style="opacity:.4">|</span>
+<a class="lang-btn" data-lang="nl" href="#">NL</a>
+<span style="opacity:.4">|</span>
+<a class="lang-btn" data-lang="en" href="#">EN</a>
+</div></ul>
+<a class="nav-resa" href="#"><span data-i18n="t5">Réserver</span></a>
+<button class="nav-burger" id="burger" onclick="toggleMenu()">
+<span></span><span></span><span></span>
+</button>
 </nav>
 <div class="nav-overlay" id="overlay" onclick="toggleMenu()"></div>
 <div class="nav-drawer" id="drawer">
-  <a href="index.html">Accueil</a>
-  <a href="carte.html">Carte</a>
-  <a href="carte_boissons.html" class="active">Boissons</a>
-  <a href="carte_vins.html">Vins</a>
-  <a href="#" class="resa-link">Réserver</a>
+<a href="index.html"><span data-i18n="t6">Accueil</span></a>
+<a href="carte.html"><span data-i18n="t7">Carte</span></a>
+<a class="active" href="#"><span data-i18n="t8">Boissons</span></a>
+<a class="resa-link" href="#"><span data-i18n="t9">Réserver</span></a>
 </div>
-
 <!-- PAGE HERO -->
 <header class="page-hero">
-  <div class="page-hero-inner">
-    <span class="s-eyebrow">Notre Sélection</span>
-    <h1 class="page-title">Carte des Boissons</h1>
-    <div class="or-line"></div>
-    <p>Découvrez notre sélection de boissons, spiritueux et cocktails pour accompagner votre repas.</p>
-  </div>
+<div class="page-hero-inner">
+<span class="s-eyebrow"><span data-i18n="t10">Notre Sélection</span></span>
+<h1 class="page-title"><span data-i18n="t11">Carte des Boissons</span></h1>
+<div class="or-line"></div>
+<p><span data-i18n="t12">Découvrez notre sélection de boissons, spiritueux et cocktails pour accompagner votre repas.</span></p>
+</div>
 </header>
-
 <!-- TAB NAVIGATION -->
 <div class="tab-nav-wrap">
-  <div class="tab-nav">
-    <button class="tab-btn active" onclick="showTab('softs')">Softs</button>
-    <button class="tab-btn" onclick="showTab('bieres')">Bières</button>
-    <button class="tab-btn" onclick="showTab('aperitifs')">Apéritifs</button>
-    <button class="tab-btn" onclick="showTab('cocktails')">Cocktails</button>
-    <button class="tab-btn" onclick="showTab('alcools')">Alcools Forts</button>
-    <button class="tab-btn" onclick="showTab('digestifs')">Digestifs</button>
-    <button class="tab-btn" onclick="showTab('chaudes')">Boissons Chaudes</button>
-    <button class="tab-btn" onclick="showTab('thes')">Thés & Infusions</button>
-  </div>
+<div class="tab-nav">
+<button class="tab-btn active" onclick="showTab('softs')"><span data-i18n="t13">Softs</span></button>
+<button class="tab-btn" onclick="showTab('bieres')"><span data-i18n="t14">Bières</span></button>
+<button class="tab-btn" onclick="showTab('aperitifs')"><span data-i18n="t15">Apéritifs</span></button>
+<button class="tab-btn" onclick="showTab('cocktails')">Cocktails</button>
+<button class="tab-btn" onclick="showTab('alcools')"><span data-i18n="t16">Alcools Forts</span></button>
+<button class="tab-btn" onclick="showTab('digestifs')"><span data-i18n="t17">Digestifs</span></button>
+<button class="tab-btn" onclick="showTab('chaudes')"><span data-i18n="t18">Boissons Chaudes</span></button>
+<button class="tab-btn" onclick="showTab('thes')"><span data-i18n="t19">Thés &amp; Infusions</span></button>
 </div>
-
+</div>
 <!-- CARTE -->
 <div class="carte-wrap">
-
-  <!-- SOFTS -->
-  <div class="carte-section active" id="tab-softs">
-    <div class="cat-header">
-      <span class="cat-eyebrow">Petite Fraîcheur</span>
-      <h2 class="cat-title">Softs</h2>
-      <div class="cat-divider"><span>✦</span></div>
-    </div>
-
-    <div class="sub-cat">
-      <div class="dish"><div class="dish-left"><div class="dish-name">Coca cola</div></div><div class="dish-price">3,90 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Coca cola 0</div></div><div class="dish-price">3,90 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Fanta orange</div></div><div class="dish-price">3,90 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Ice-Tea pétillant</div></div><div class="dish-price">3,90 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Ice-Tea pêche</div></div><div class="dish-price">3,90 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Sprite</div></div><div class="dish-price">3,90 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Schweppes Agrume</div></div><div class="dish-price">3,90 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Schweppes Tonic</div></div><div class="dish-price">3,90 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Minute Maid orange</div></div><div class="dish-price">4,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Minute Maid pomme</div></div><div class="dish-price">4,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Minute Maid tomate</div></div><div class="dish-price">4,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Jus mixte pressé orange et citron</div></div><div class="dish-price">7,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Jus d'orange pressé</div></div><div class="dish-price">7,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Jus de citron pressé</div></div><div class="dish-price">7,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Chaudfontaine 25cl plate</div></div><div class="dish-price">3,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Chaudfontaine 25cl pétillante</div></div><div class="dish-price">3,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Chaudfontaine 50cl plate</div></div><div class="dish-price">5,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Chaudfontaine 50cl pétillante</div></div><div class="dish-price">5,00 €</div></div>
-    </div>
-  </div>
-
-  <!-- BIÈRES EN BOUTEILLES -->
-  <div class="carte-section" id="tab-bieres">
-    <div class="cat-header">
-      <span class="cat-eyebrow">À Déguster</span>
-      <h2 class="cat-title">Bières en Bouteilles</h2>
-      <div class="cat-divider"><span>✦</span></div>
-    </div>
-
-    <div class="sub-cat">
-      <div class="dish"><div class="dish-left"><div class="dish-name">Carlsberg</div></div><div class="dish-price">4,60 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Chimay Bleue</div></div><div class="dish-price">5,80 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Duvel</div></div><div class="dish-price">5,80 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Ramée Ambrée</div></div><div class="dish-price">5,80 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Kriek Lindemans</div></div><div class="dish-price">5,80 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Triple Karmeliet</div></div><div class="dish-price">5,80 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Jupiler</div></div><div class="dish-price">4,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Jupiler 0%</div></div><div class="dish-price">5,60 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Chouffe blonde</div></div><div class="dish-price">5,80 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Orval</div></div><div class="dish-price">5,80 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Hoegaarden Blanche</div></div><div class="dish-price">3,80 €</div></div>
-    </div>
-  </div>
-
-  <!-- APÉRITIFS -->
-  <div class="carte-section" id="tab-aperitifs">
-    <div class="cat-header">
-      <span class="cat-eyebrow">Avant le Repas</span>
-      <h2 class="cat-title">Apéritifs</h2>
-      <div class="cat-divider"><span>✦</span></div>
-    </div>
-
-    <div class="sub-cat">
-      <div class="dish"><div class="dish-left"><div class="dish-name">Batida de coco</div></div><div class="dish-price">8,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Campari (avec ou sans alcool)</div></div><div class="dish-price">9,00 € / 8,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Kir</div></div><div class="dish-price">8,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Kir royal</div></div><div class="dish-price">13,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Martini Bianco</div></div><div class="dish-price">9,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Martini Rosso</div></div><div class="dish-price">9,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Picon vin blanc</div></div><div class="dish-price">9,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Pineau des Charentes</div></div><div class="dish-price">9,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Pisang (avec ou sans alcool)</div></div><div class="dish-price">9,00 € / 8,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Porto rouge</div></div><div class="dish-price">9,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Porto blanc</div></div><div class="dish-price">9,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Ricard</div></div><div class="dish-price">7,50 €</div></div>
-    </div>
-  </div>
-
-  <!-- COCKTAILS -->
-  <div class="carte-section" id="tab-cocktails">
-    <div class="cat-header">
-      <span class="cat-eyebrow">Signature</span>
-      <h2 class="cat-title">Cocktails</h2>
-      <div class="cat-divider"><span>✦</span></div>
-    </div>
-
-    <div class="sub-cat">
-      <div class="dish"><div class="dish-left"><div class="dish-name">Apéro Maison</div><div class="dish-desc">Cointreau, rhum blanc, rhum brun, vodka, jus d'orange, grenadine</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Mojito sans alcool</div><div class="dish-desc">Sucre de canne, jus de citron vert, menthe fraîche, eau pétillante</div></div><div class="dish-price">8,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Mojito</div><div class="dish-desc">Rhum blanc, sucre de canne, jus de citron vert, menthe fraîche, eau pétillante</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Mojito Royal</div><div class="dish-desc">Rhum blanc, sucre de canne, jus de citron vert, menthe fraîche, champagne</div></div><div class="dish-price">13,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Cuba Libre</div><div class="dish-desc">Rhum brun, jus de citron vert, coca-cola</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Margarita</div><div class="dish-desc">Tequila, cointreau, jus de citron vert</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Bloody Mary</div><div class="dish-desc">Vodka, jus de tomate, sel d'épices, tabasco, sauce anglaise</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Apérol Spritz</div><div class="dish-desc">Apérol, prosecco, soda</div></div><div class="dish-price">10,00 €</div></div>
-    </div>
-  </div>
-
-  <!-- ALCOOLS FORTS -->
-  <div class="carte-section" id="tab-alcools">
-    <div class="cat-header">
-      <span class="cat-eyebrow">À Déguster</span>
-      <h2 class="cat-title">Alcools Forts</h2>
-      <div class="cat-divider"><span>✦</span></div>
-    </div>
-
-    <div class="sub-cat">
-      <span class="sub-cat-label">Rhums</span>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Bacardi Blanc</div></div><div class="dish-price">11,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Havana Blanc</div></div><div class="dish-price">11,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Havana Brun</div></div><div class="dish-price">11,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">The Demon's Share</div><div class="dish-desc">6 ans d'âge, Panama - Ambré</div></div><div class="dish-price">13,50 €</div></div>
-    </div>
-
-    <div class="sub-cat">
-      <span class="sub-cat-label">Gins</span>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Gordon's London Dry Gin</div></div><div class="dish-price">10,50 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Raspberry - Buss N°509</div></div><div class="dish-price">12,50 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Hendrick's Gin</div></div><div class="dish-price">14,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Maredous Valéo</div><div class="dish-desc">Botanical Dry Gin</div></div><div class="dish-price">14,00 €</div></div>
-    </div>
-
-    <div class="sub-cat">
-      <span class="sub-cat-label">Whiskies</span>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Jack Daniel's</div></div><div class="dish-price">12,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">J&B Blended</div></div><div class="dish-price">12,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Johnnie Walker Red Label</div></div><div class="dish-price">12,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">The Glenlivet</div><div class="dish-desc">18 ans d'âge - Single Malt écossais</div></div><div class="dish-price">15,50 €</div></div>
-    </div>
-
-    <div class="sub-cat">
-      <span class="sub-cat-label">Autres Spiritueux</span>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Vodka</div></div><div class="dish-price">11,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Tequila</div></div><div class="dish-price">11,00 €</div></div>
-    </div>
-  </div>
-
-  <!-- DIGESTIFS -->
-  <div class="carte-section" id="tab-digestifs">
-    <div class="cat-header">
-      <span class="cat-eyebrow">Après le Repas</span>
-      <h2 class="cat-title">Digestifs</h2>
-      <div class="cat-divider"><span>✦</span></div>
-    </div>
-
-    <div class="sub-cat">
-      <div class="dish"><div class="dish-left"><div class="dish-name">Amaretto Disaronno</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Baileys</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Calvados</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Cointreau</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Cognac</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Grand-Marnier</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Grappa</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Limoncello</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Mandarine Napoléon</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Sambuca</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Eau de Villée de Bircée</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Poire Williams</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Xanté</div></div><div class="dish-price">10,00 €</div></div>
-    </div>
-  </div>
-
-  <!-- BOISSONS CHAUDES -->
-  <div class="carte-section" id="tab-chaudes">
-    <div class="cat-header">
-      <span class="cat-eyebrow">Réconfort</span>
-      <h2 class="cat-title">Boissons Chaudes</h2>
-      <div class="cat-divider"><span>✦</span></div>
-    </div>
-
-    <div class="sub-cat">
-      <span class="sub-cat-label">Cafés & Chocolats</span>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Café</div></div><div class="dish-price">3,50 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Déca</div></div><div class="dish-price">3,50 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Espresso</div></div><div class="dish-price">3,50 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Cappuccino Crème Fraîche</div></div><div class="dish-price">4,20 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Cappuccino Mousse de Lait</div></div><div class="dish-price">4,20 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Chocolat Chaud Traditionnel</div></div><div class="dish-price">4,20 €</div></div>
-    </div>
-
-    <div class="sub-cat">
-      <span class="sub-cat-label">Cafés Gourmands</span>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Irish Coffee</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Italian Coffee</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">French Coffee</div></div><div class="dish-price">10,00 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Lait Russe</div></div><div class="dish-price">4,20 €</div></div>
-    </div>
-  </div>
-
-  <!-- THÉS & INFUSIONS -->
-  <div class="carte-section" id="tab-thes">
-    <div class="cat-header">
-      <span class="cat-eyebrow">Bien-Être</span>
-      <h2 class="cat-title">Thés & Infusions BIO</h2>
-      <div class="cat-divider"><span>✦</span></div>
-    </div>
-
-    <div class="sub-cat">
-      <div class="dish"><div class="dish-left"><div class="dish-name">Thé Vert d'Inde</div><div class="dish-desc">Coco, citronelle, gingembre et vanille</div></div><div class="dish-price">3,50 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Thé Menthe Fraîche</div><div class="dish-desc">À la marocaine</div></div><div class="dish-price">3,50 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Thé Rooibos Chaï</div><div class="dish-desc">Coriandre, cardamome, cannelle</div></div><div class="dish-price">3,50 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Infusion Menthe Verveine</div></div><div class="dish-price">3,50 €</div></div>
-      <div class="dish"><div class="dish-left"><div class="dish-name">Infusion Camomille</div></div><div class="dish-price">3,50 €</div></div>
-    </div>
-  </div>
-
+<!-- SOFTS -->
+<div class="carte-section active" id="tab-softs">
+<div class="cat-header">
+<span class="cat-eyebrow"><span data-i18n="t20">Petite Fraîcheur</span></span>
+<h2 class="cat-title"><span data-i18n="t21">Softs</span></h2>
+<div class="cat-divider"><span>✦</span></div>
+</div>
+<div class="sub-cat">
+<div class="dish"><div class="dish-left"><div class="dish-name">Coca cola</div></div><div class="dish-price">3,90 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Coca cola 0</div></div><div class="dish-price">3,90 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t22">Fanta orange</span></div></div><div class="dish-price">3,90 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t23">Ice-Tea pétillant</span></div></div><div class="dish-price">3,90 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t24">Ice-Tea pêche</span></div></div><div class="dish-price">3,90 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Sprite</div></div><div class="dish-price">3,90 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t25">Schweppes Agrume</span></div></div><div class="dish-price">3,90 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Schweppes Tonic</div></div><div class="dish-price">3,90 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t26">Minute Maid orange</span></div></div><div class="dish-price">4,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t27">Minute Maid pomme</span></div></div><div class="dish-price">4,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t28">Minute Maid tomate</span></div></div><div class="dish-price">4,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t29">Jus mixte pressé orange et citron</span></div></div><div class="dish-price">7,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t30">Jus d'orange pressé</span></div></div><div class="dish-price">7,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t31">Jus de citron pressé</span></div></div><div class="dish-price">7,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t32">Chaudfontaine 25cl plate</span></div></div><div class="dish-price">3,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t33">Chaudfontaine 25cl pétillante</span></div></div><div class="dish-price">3,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t34">Chaudfontaine 50cl plate</span></div></div><div class="dish-price">5,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t35">Chaudfontaine 50cl pétillante</span></div></div><div class="dish-price">5,00 €</div></div>
+</div>
+</div>
+<!-- BIÈRES EN BOUTEILLES -->
+<div class="carte-section" id="tab-bieres">
+<div class="cat-header">
+<span class="cat-eyebrow"><span data-i18n="t36">À Déguster</span></span>
+<h2 class="cat-title"><span data-i18n="t37">Bières en Bouteilles</span></h2>
+<div class="cat-divider"><span>✦</span></div>
+</div>
+<div class="sub-cat">
+<div class="dish"><div class="dish-left"><div class="dish-name">Carlsberg</div></div><div class="dish-price">4,60 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t38">Chimay Bleue</span></div></div><div class="dish-price">5,80 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Duvel</div></div><div class="dish-price">5,80 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t39">Ramée Ambrée</span></div></div><div class="dish-price">5,80 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Kriek Lindemans</div></div><div class="dish-price">5,80 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t40">Triple Karmeliet</span></div></div><div class="dish-price">5,80 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Jupiler</div></div><div class="dish-price">4,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Jupiler 0%</div></div><div class="dish-price">5,60 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t41">Chouffe blonde</span></div></div><div class="dish-price">5,80 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Orval</div></div><div class="dish-price">5,80 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t42">Hoegaarden Blanche</span></div></div><div class="dish-price">3,80 €</div></div>
+</div>
+</div>
+<!-- APÉRITIFS -->
+<div class="carte-section" id="tab-aperitifs">
+<div class="cat-header">
+<span class="cat-eyebrow"><span data-i18n="t43">Avant le Repas</span></span>
+<h2 class="cat-title"><span data-i18n="t44">Apéritifs</span></h2>
+<div class="cat-divider"><span>✦</span></div>
+</div>
+<div class="sub-cat">
+<div class="dish"><div class="dish-left"><div class="dish-name">Batida de coco</div></div><div class="dish-price">8,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t45">Campari (avec ou sans alcool)</span></div></div><div class="dish-price">9,00 € / 8,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Kir</div></div><div class="dish-price">8,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Kir royal</div></div><div class="dish-price">13,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Martini Bianco</div></div><div class="dish-price">9,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Martini Rosso</div></div><div class="dish-price">9,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t46">Picon vin blanc</span></div></div><div class="dish-price">9,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Pineau des Charentes</div></div><div class="dish-price">9,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t47">Pisang (avec ou sans alcool)</span></div></div><div class="dish-price">9,00 € / 8,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t48">Porto rouge</span></div></div><div class="dish-price">9,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t49">Porto blanc</span></div></div><div class="dish-price">9,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Ricard</div></div><div class="dish-price">7,50 €</div></div>
+</div>
+</div>
+<!-- COCKTAILS -->
+<div class="carte-section" id="tab-cocktails">
+<div class="cat-header">
+<span class="cat-eyebrow">Signature</span>
+<h2 class="cat-title">Cocktails</h2>
+<div class="cat-divider"><span>✦</span></div>
+</div>
+<div class="sub-cat">
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t50">Apéro Maison</span></div><div class="dish-desc"><span data-i18n="t51">Cointreau, rhum blanc, rhum brun, vodka, jus d'orange, grenadine</span></div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t52">Mojito sans alcool</span></div><div class="dish-desc"><span data-i18n="t53">Sucre de canne, jus de citron vert, menthe fraîche, eau pétillante</span></div></div><div class="dish-price">8,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Mojito</div><div class="dish-desc"><span data-i18n="t54">Rhum blanc, sucre de canne, jus de citron vert, menthe fraîche, eau pétillante</span></div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Mojito Royal</div><div class="dish-desc"><span data-i18n="t55">Rhum blanc, sucre de canne, jus de citron vert, menthe fraîche, champagne</span></div></div><div class="dish-price">13,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Cuba Libre</div><div class="dish-desc"><span data-i18n="t56">Rhum brun, jus de citron vert, coca-cola</span></div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Margarita</div><div class="dish-desc"><span data-i18n="t57">Tequila, cointreau, jus de citron vert</span></div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Bloody Mary</div><div class="dish-desc"><span data-i18n="t58">Vodka, jus de tomate, sel d'épices, tabasco, sauce anglaise</span></div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t59">Apérol Spritz</span></div><div class="dish-desc"><span data-i18n="t60">Apérol, prosecco, soda</span></div></div><div class="dish-price">10,00 €</div></div>
+</div>
+</div>
+<!-- ALCOOLS FORTS -->
+<div class="carte-section" id="tab-alcools">
+<div class="cat-header">
+<span class="cat-eyebrow"><span data-i18n="t61">À Déguster</span></span>
+<h2 class="cat-title"><span data-i18n="t62">Alcools Forts</span></h2>
+<div class="cat-divider"><span>✦</span></div>
+</div>
+<div class="sub-cat">
+<span class="sub-cat-label"><span data-i18n="t63">Rhums</span></span>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t64">Bacardi Blanc</span></div></div><div class="dish-price">11,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t65">Havana Blanc</span></div></div><div class="dish-price">11,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t66">Havana Brun</span></div></div><div class="dish-price">11,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">The Demon's Share</div><div class="dish-desc"><span data-i18n="t67">6 ans d'âge, Panama - Ambré</span></div></div><div class="dish-price">13,50 €</div></div>
+</div>
+<div class="sub-cat">
+<span class="sub-cat-label">Gins</span>
+<div class="dish"><div class="dish-left"><div class="dish-name">Gordon's London Dry Gin</div></div><div class="dish-price">10,50 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Raspberry - Buss N°509</div></div><div class="dish-price">12,50 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Hendrick's Gin</div></div><div class="dish-price">14,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Maredous Valéo</div><div class="dish-desc">Botanical Dry Gin</div></div><div class="dish-price">14,00 €</div></div>
+</div>
+<div class="sub-cat">
+<span class="sub-cat-label"><span data-i18n="t68">Whiskies</span></span>
+<div class="dish"><div class="dish-left"><div class="dish-name">Jack Daniel's</div></div><div class="dish-price">12,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">J&amp;B Blended</div></div><div class="dish-price">12,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Johnnie Walker Red Label</div></div><div class="dish-price">12,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">The Glenlivet</div><div class="dish-desc"><span data-i18n="t69">18 ans d'âge - Single Malt écossais</span></div></div><div class="dish-price">15,50 €</div></div>
+</div>
+<div class="sub-cat">
+<span class="sub-cat-label"><span data-i18n="t70">Autres Spiritueux</span></span>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t71">Vodka</span></div></div><div class="dish-price">11,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Tequila</div></div><div class="dish-price">11,00 €</div></div>
+</div>
+</div>
+<!-- DIGESTIFS -->
+<div class="carte-section" id="tab-digestifs">
+<div class="cat-header">
+<span class="cat-eyebrow"><span data-i18n="t72">Après le Repas</span></span>
+<h2 class="cat-title"><span data-i18n="t73">Digestifs</span></h2>
+<div class="cat-divider"><span>✦</span></div>
+</div>
+<div class="sub-cat">
+<div class="dish"><div class="dish-left"><div class="dish-name">Amaretto Disaronno</div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Baileys</div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Calvados</div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Cointreau</div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Cognac</div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t74">Grand-Marnier</span></div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Grappa</div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Limoncello</div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Mandarine Napoléon</div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Sambuca</div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Eau de Villée de Bircée</div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t75">Poire Williams</span></div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Xanté</div></div><div class="dish-price">10,00 €</div></div>
+</div>
+</div>
+<!-- BOISSONS CHAUDES -->
+<div class="carte-section" id="tab-chaudes">
+<div class="cat-header">
+<span class="cat-eyebrow"><span data-i18n="t76">Réconfort</span></span>
+<h2 class="cat-title"><span data-i18n="t77">Boissons Chaudes</span></h2>
+<div class="cat-divider"><span>✦</span></div>
+</div>
+<div class="sub-cat">
+<span class="sub-cat-label"><span data-i18n="t78">Cafés &amp; Chocolats</span></span>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t79">Café</span></div></div><div class="dish-price">3,50 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t80">Déca</span></div></div><div class="dish-price">3,50 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Espresso</div></div><div class="dish-price">3,50 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Cappuccino Crème Fraîche</div></div><div class="dish-price">4,20 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t81">Cappuccino Mousse de Lait</span></div></div><div class="dish-price">4,20 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t82">Chocolat Chaud Traditionnel</span></div></div><div class="dish-price">4,20 €</div></div>
+</div>
+<div class="sub-cat">
+<span class="sub-cat-label"><span data-i18n="t83">Cafés Gourmands</span></span>
+<div class="dish"><div class="dish-left"><div class="dish-name">Irish Coffee</div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">Italian Coffee</div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name">French Coffee</div></div><div class="dish-price">10,00 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t84">Lait Russe</span></div></div><div class="dish-price">4,20 €</div></div>
+</div>
+</div>
+<!-- THÉS & INFUSIONS -->
+<div class="carte-section" id="tab-thes">
+<div class="cat-header">
+<span class="cat-eyebrow"><span data-i18n="t85">Bien-Être</span></span>
+<h2 class="cat-title"><span data-i18n="t86">Thés &amp; Infusions BIO</span></h2>
+<div class="cat-divider"><span>✦</span></div>
+</div>
+<div class="sub-cat">
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t87">Thé Vert d'Inde</span></div><div class="dish-desc"><span data-i18n="t88">Coco, citronelle, gingembre et vanille</span></div></div><div class="dish-price">3,50 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t89">Thé Menthe Fraîche</span></div><div class="dish-desc">À la marocaine</div></div><div class="dish-price">3,50 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t90">Thé Rooibos Chaï</span></div><div class="dish-desc"><span data-i18n="t91">Coriandre, cardamome, cannelle</span></div></div><div class="dish-price">3,50 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t92">Infusion Menthe Verveine</span></div></div><div class="dish-price">3,50 €</div></div>
+<div class="dish"><div class="dish-left"><div class="dish-name"><span data-i18n="t93">Infusion Camomille</span></div></div><div class="dish-price">3,50 €</div></div>
+</div>
+</div>
 </div><!-- end carte-wrap -->
-
 <!-- FOOTER -->
 <footer>
-  <div class="footer-bottom">
-    <p>© 2024 Bébé, Chouchou et Moi — Rue de Bruxelles 4, 1300 Wavre</p>
-    <p>TVA : BE0760971136</p>
-  </div>
+<div class="footer-bottom">
+<p><span data-i18n="t94">© 2024 Bébé, Chouchou et Moi — Rue de Bruxelles 4, 1300 Wavre</span></p>
+<p><span data-i18n="t95">TVA : BE0760971136</span></p>
+</div>
 </footer>
-
 <script>
 /* NAV */
 const nav = document.getElementById('nav');
@@ -398,6 +384,46 @@ function showTab(id) {
   window.scrollTo({ top: document.querySelector('.tab-nav-wrap').offsetTop - 72, behavior: 'smooth' });
 }
 </script>
-
-</body>
+<script>
+(function(){
+  const T = {"fr": {"t1": "Carte des Boissons — Bébé, Chouchou et Moi", "t2": "Accueil", "t3": "Carte", "t4": "Boissons", "t5": "Réserver", "t6": "Accueil", "t7": "Carte", "t8": "Boissons", "t9": "Réserver", "t10": "Notre Sélection", "t11": "Carte des Boissons", "t12": "Découvrez notre sélection de boissons, spiritueux et cocktails pour accompagner votre repas.", "t13": "Softs", "t14": "Bières", "t15": "Apéritifs", "t16": "Alcools Forts", "t17": "Digestifs", "t18": "Boissons Chaudes", "t19": "Thés & Infusions", "t20": "Petite Fraîcheur", "t21": "Softs", "t22": "Fanta orange", "t23": "Ice-Tea pétillant", "t24": "Ice-Tea pêche", "t25": "Schweppes Agrume", "t26": "Minute Maid orange", "t27": "Minute Maid pomme", "t28": "Minute Maid tomate", "t29": "Jus mixte pressé orange et citron", "t30": "Jus d'orange pressé", "t31": "Jus de citron pressé", "t32": "Chaudfontaine 25cl plate", "t33": "Chaudfontaine 25cl pétillante", "t34": "Chaudfontaine 50cl plate", "t35": "Chaudfontaine 50cl pétillante", "t36": "À Déguster", "t37": "Bières en Bouteilles", "t38": "Chimay Bleue", "t39": "Ramée Ambrée", "t40": "Triple Karmeliet", "t41": "Chouffe blonde", "t42": "Hoegaarden Blanche", "t43": "Avant le Repas", "t44": "Apéritifs", "t45": "Campari (avec ou sans alcool)", "t46": "Picon vin blanc", "t47": "Pisang (avec ou sans alcool)", "t48": "Porto rouge", "t49": "Porto blanc", "t50": "Apéro Maison", "t51": "Cointreau, rhum blanc, rhum brun, vodka, jus d'orange, grenadine", "t52": "Mojito sans alcool", "t53": "Sucre de canne, jus de citron vert, menthe fraîche, eau pétillante", "t54": "Rhum blanc, sucre de canne, jus de citron vert, menthe fraîche, eau pétillante", "t55": "Rhum blanc, sucre de canne, jus de citron vert, menthe fraîche, champagne", "t56": "Rhum brun, jus de citron vert, coca-cola", "t57": "Tequila, cointreau, jus de citron vert", "t58": "Vodka, jus de tomate, sel d'épices, tabasco, sauce anglaise", "t59": "Apérol Spritz", "t60": "Apérol, prosecco, soda", "t61": "À Déguster", "t62": "Alcools Forts", "t63": "Rhums", "t64": "Bacardi Blanc", "t65": "Havana Blanc", "t66": "Havana Brun", "t67": "6 ans d'âge, Panama - Ambré", "t68": "Whiskies", "t69": "18 ans d'âge - Single Malt écossais", "t70": "Autres Spiritueux", "t71": "Vodka", "t72": "Après le Repas", "t73": "Digestifs", "t74": "Grand-Marnier", "t75": "Poire Williams", "t76": "Réconfort", "t77": "Boissons Chaudes", "t78": "Cafés & Chocolats", "t79": "Café", "t80": "Déca", "t81": "Cappuccino Mousse de Lait", "t82": "Chocolat Chaud Traditionnel", "t83": "Cafés Gourmands", "t84": "Lait Russe", "t85": "Bien-Être", "t86": "Thés & Infusions BIO", "t87": "Thé Vert d'Inde", "t88": "Coco, citronelle, gingembre et vanille", "t89": "Thé Menthe Fraîche", "t90": "Thé Rooibos Chaï", "t91": "Coriandre, cardamome, cannelle", "t92": "Infusion Menthe Verveine", "t93": "Infusion Camomille", "t94": "© 2024 Bébé, Chouchou et Moi — Rue de Bruxelles 4, 1300 Wavre", "t95": "TVA : BE0760971136"}, "nl": {"t1": "Drankenkaart — Bébé, Chouchou et Moi", "t2": "Home", "t3": "Kaart", "t4": "Dranken", "t5": "Reserveren", "t6": "Home", "t7": "Kaart", "t8": "Dranken", "t9": "Reserveren", "t10": "Onze Selectie", "t11": "Drankenkaart", "t12": "Ontdek onze selectie van dranken, sterke drank en cocktails om uw maaltijd te begeleiden.", "t13": "Frisdrank", "t14": "Bieren", "t15": "Aperitieven", "t16": "Sterke Drank", "t17": "Digestieven", "t18": "Warme Dranken", "t19": "Thee & Kruidenthee", "t20": "Kleine Frisheid", "t21": "Frisdrank", "t22": "Fanta sinaasappel", "t23": "Bruisende Ice-Tea", "t24": "Ice-Tea perzik", "t25": "Schweppes Citrus", "t26": "Minute Maid sinaasappel", "t27": "Minute Maid appel", "t28": "Minute Maid tomaat", "t29": "Vers geperst gemengd sap sinaasappel-citroen", "t30": "Vers geperst sinaasappelsap", "t31": "Vers geperst citroensap", "t32": "Chaudfontaine 25cl plat", "t33": "Chaudfontaine 25cl bruisend", "t34": "Chaudfontaine 50cl plat", "t35": "Chaudfontaine 50cl bruisend", "t36": "Om te Proeven", "t37": "Bieren op fles", "t38": "Chimay Blauw", "t39": "Ramée Amber", "t40": "Tripel Karmeliet", "t41": "Chouffe blond", "t42": "Hoegaarden Witbier", "t43": "Voor de Maaltijd", "t44": "Aperitieven", "t45": "Campari (met of zonder alcohol)", "t46": "Picon witte wijn", "t47": "Pisang (met of zonder alcohol)", "t48": "Rode porto", "t49": "Witte porto", "t50": "Huisaperitief", "t51": "Cointreau, witte rum, bruine rum, wodka, sinaasappelsap, grenadine", "t52": "Alcoholvrije Mojito", "t53": "Rietsuiker, limoensap, verse munt, bruisend water", "t54": "Witte rum, rietsuiker, limoensap, verse munt, bruisend water", "t55": "Witte rum, rietsuiker, limoensap, verse munt, champagne", "t56": "Bruine rum, limoensap, cola", "t57": "Tequila, cointreau, limoensap", "t58": "Wodka, tomatensap, kruidenzout, tabasco, worcestershiresaus", "t59": "Aperol Spritz", "t60": "Aperol, prosecco, soda", "t61": "Om te Proeven", "t62": "Sterke Drank", "t63": "Rums", "t64": "Bacardi Blanco", "t65": "Havana Blanco", "t66": "Havana Bruin", "t67": "6 jaar oud, Panama - Amber", "t68": "Whisky's", "t69": "18 jaar oud - Schotse Single Malt", "t70": "Andere Sterke Drank", "t71": "Wodka", "t72": "Na de Maaltijd", "t73": "Digestieven", "t74": "Grand Marnier", "t75": "Poire Williams", "t76": "Troost", "t77": "Warme Dranken", "t78": "Koffies & Chocolade", "t79": "Koffie", "t80": "Deca", "t81": "Cappuccino Melkschuim", "t82": "Traditionele Warme Chocolade", "t83": "Gourmandkoffies", "t84": "Russische Melk", "t85": "Welzijn", "t86": "BIO Thee & Kruidenthee", "t87": "Indische Groene Thee", "t88": "Kokos, citroengras, gember en vanille", "t89": "Verse Muntthee", "t90": "Rooibos Chai Thee", "t91": "Koriander, kardemom, kaneel", "t92": "Munt-Verbena Thee", "t93": "Kamillethee", "t94": "© 2024 Bébé, Chouchou et Moi — Rue de Bruxelles 4, 1300 Waver", "t95": "BTW : BE0760971136"}, "en": {"t1": "Drinks Menu — Bébé, Chouchou et Moi", "t2": "Home", "t3": "Menu", "t4": "Drinks", "t5": "Book", "t6": "Home", "t7": "Menu", "t8": "Drinks", "t9": "Book", "t10": "Our Selection", "t11": "Drinks Menu", "t12": "Discover our selection of drinks, spirits and cocktails to accompany your meal.", "t13": "Soft Drinks", "t14": "Beers", "t15": "Aperitifs", "t16": "Spirits", "t17": "Digestifs", "t18": "Hot Drinks", "t19": "Teas & Infusions", "t20": "Small Freshness", "t21": "Soft Drinks", "t22": "Fanta orange", "t23": "Sparkling Ice Tea", "t24": "Peach Ice Tea", "t25": "Schweppes Citrus", "t26": "Minute Maid orange", "t27": "Minute Maid apple", "t28": "Minute Maid tomato", "t29": "Fresh mixed orange-lemon juice", "t30": "Fresh orange juice", "t31": "Fresh lemon juice", "t32": "Chaudfontaine 25cl still", "t33": "Chaudfontaine 25cl sparkling", "t34": "Chaudfontaine 50cl still", "t35": "Chaudfontaine 50cl sparkling", "t36": "To Enjoy", "t37": "Bottled Beers", "t38": "Chimay Blue", "t39": "Ramée Amber", "t40": "Triple Karmeliet", "t41": "Chouffe blonde", "t42": "Hoegaarden White", "t43": "Before the Meal", "t44": "Aperitifs", "t45": "Campari (with or without alcohol)", "t46": "Picon white wine", "t47": "Pisang (with or without alcohol)", "t48": "Red port", "t49": "White port", "t50": "House Aperitif", "t51": "Cointreau, white rum, brown rum, vodka, orange juice, grenadine", "t52": "Alcohol-free Mojito", "t53": "Cane sugar, lime juice, fresh mint, sparkling water", "t54": "White rum, cane sugar, lime juice, fresh mint, sparkling water", "t55": "White rum, cane sugar, lime juice, fresh mint, champagne", "t56": "Brown rum, lime juice, cola", "t57": "Tequila, cointreau, lime juice", "t58": "Vodka, tomato juice, spice salt, tabasco, worcestershire sauce", "t59": "Aperol Spritz", "t60": "Aperol, prosecco, soda", "t61": "To Enjoy", "t62": "Spirits", "t63": "Rums", "t64": "Bacardi White", "t65": "Havana White", "t66": "Havana Brown", "t67": "6 years old, Panama - Amber", "t68": "Whiskies", "t69": "18 years old - Scotch Single Malt", "t70": "Other Spirits", "t71": "Vodka", "t72": "After the Meal", "t73": "Digestifs", "t74": "Grand Marnier", "t75": "Williams Pear", "t76": "Comfort", "t77": "Hot Drinks", "t78": "Coffees & Chocolates", "t79": "Coffee", "t80": "Decaf", "t81": "Cappuccino Milk Foam", "t82": "Traditional Hot Chocolate", "t83": "Gourmet Coffees", "t84": "Russian Milk", "t85": "Well-being", "t86": "Organic Teas & Infusions", "t87": "Indian Green Tea", "t88": "Coconut, lemongrass, ginger and vanilla", "t89": "Fresh Mint Tea", "t90": "Rooibos Chai Tea", "t91": "Coriander, cardamom, cinnamon", "t92": "Mint-Verbena Infusion", "t93": "Chamomile Infusion", "t94": "© 2024 Bébé, Chouchou et Moi — Rue de Bruxelles 4, 1300 Wavre", "t95": "VAT: BE0760971136"}};
+  function getLang(){
+    let l = localStorage.getItem('lang');
+    if(l && T[l]) return l;
+    const nav = (navigator.language||'fr').toLowerCase();
+    if(nav.startsWith('nl')) return 'nl';
+    if(nav.startsWith('en')) return 'en';
+    return 'fr';
+  }
+  function apply(lang){
+    document.documentElement.lang = lang;
+    const dict = T[lang] || T.fr;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if(dict[k] !== undefined) el.textContent = dict[k];
+    });
+    document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+      el.getAttribute('data-i18n-attr').split(';').forEach(pair => {
+        const [attr,key] = pair.split(':');
+        if(dict[key] !== undefined) el.setAttribute(attr, dict[key]);
+      });
+    });
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+    });
+    localStorage.setItem('lang', lang);
+  }
+  function init(){
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.addEventListener('click', function(e){
+        e.preventDefault();
+        apply(this.getAttribute('data-lang'));
+      });
+    });
+    apply(getLang());
+  }
+  if(document.readyState !== 'loading') init();
+  else document.addEventListener('DOMContentLoaded', init);
+})();
+</script></body>
 </html>

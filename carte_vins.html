@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Notre Carte des Vins — Bébé, Chouchou et Moi</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title><span data-i18n="t1">Notre Carte des Vins — Bébé, Chouchou et Moi</span></title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&amp;family=Cinzel:wght@400;500;600&amp;family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&amp;display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -515,249 +516,248 @@ footer{
   }
 }
 </style>
-</head>
+<style>
+.lang-switcher{display:inline-flex;gap:0.5rem;margin-left:1.5rem;align-items:center;}
+.lang-switcher a{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(250,245,236,0.5);text-decoration:none;padding:0.3rem 0.5rem;border:1px solid transparent;transition:all 0.2s;}
+.lang-switcher a:hover{color:#c8a45a;}
+.lang-switcher a.active{color:#c8a45a;border-color:rgba(200,164,90,0.4);}
+</style><style>
+.lang-btn{text-decoration:none;color:inherit;padding:2px 6px;border-radius:3px;cursor:pointer;}
+.lang-btn.active{font-weight:bold;text-decoration:underline;}
+</style></head>
 <body>
-
 <!-- NAV -->
 <nav id="nav">
-  <a href="/" class="nav-brand">
-    <span class="nav-brand-main">Bébé, Chouchou et Moi</span>
-    <span class="nav-brand-sub">Épicerie · Restaurant</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="carte.html">Carte</a></li>
-    <li><a href="carte_boissons.html">Boissons</a></li>
-    <li><a href="carte_vins.html" class="active">Vins</a></li>
-  </ul>
-  <button id="burger" class="nav-burger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
+<a class="nav-brand" href="/">
+<span class="nav-brand-main">Bébé, Chouchou et Moi</span>
+<span class="nav-brand-sub"><span data-i18n="t2">Épicerie · Restaurant</span></span>
+</a>
+<ul class="nav-links">
+<li><a class="nav-link" href="/"><span data-i18n="t3">Accueil</span></a></li>
+<li><a class="nav-link active" href="#carte"><span data-i18n="t4">Carte</span></a></li>
+<li><a class="nav-link" href="#contact">Contact</a></li>
+<div class="lang-switcher" style="display:inline-flex;gap:8px;margin-left:15px;align-items:center;font-size:13px;">
+<a class="lang-btn" data-lang="fr" href="#">FR</a>
+<span style="opacity:.4">|</span>
+<a class="lang-btn" data-lang="nl" href="#">NL</a>
+<span style="opacity:.4">|</span>
+<a class="lang-btn" data-lang="en" href="#">EN</a>
+</div></ul>
+<button class="nav-burger" id="burger" onclick="toggleMenu()">
+<span></span><span></span><span></span>
+</button>
 </nav>
-
-<div id="overlay" class="nav-overlay" onclick="toggleMenu()"></div>
-
+<div class="nav-overlay" id="overlay" onclick="toggleMenu()"></div>
 <!-- PAGE HERO -->
 <div class="page-hero">
-  <h1>Notre Carte des Vins</h1>
-  <p>Une sélection de vins fins pour sublimer vos moments</p>
+<h1><span data-i18n="t5">Notre Carte des Vins</span></h1>
+<p><span data-i18n="t6">Une sélection de vins fins pour sublimer vos moments</span></p>
 </div>
-
 <!-- TAB NAVIGATION -->
 <div class="tab-nav-wrap">
-  <ul class="tab-nav">
-    <li><button class="tab-btn active" onclick="showTab('bulles')">Bulles</button></li>
-    <li><button class="tab-btn" onclick="showTab('maison')">Notre Maison</button></li>
-    <li><button class="tab-btn" onclick="showTab('rouges')">Rouges</button></li>
-    <li><button class="tab-btn" onclick="showTab('blancs')">Blancs</button></li>
-    <li><button class="tab-btn" onclick="showTab('roses')">Rosés</button></li>
-  </ul>
+<ul class="tab-nav">
+<li><button class="tab-btn active" onclick="showTab('bulles')"><span data-i18n="t7">Bulles</span></button></li>
+<li><button class="tab-btn" onclick="showTab('maison')"><span data-i18n="t8">Notre Maison</span></button></li>
+<li><button class="tab-btn" onclick="showTab('rouges')"><span data-i18n="t9">Rouges</span></button></li>
+<li><button class="tab-btn" onclick="showTab('blancs')"><span data-i18n="t10">Blancs</span></button></li>
+<li><button class="tab-btn" onclick="showTab('roses')"><span data-i18n="t11">Rosés</span></button></li>
+</ul>
 </div>
-
 <!-- CARTE WRAP -->
 <div class="carte-wrap">
-
-  <!-- BULLES -->
-  <div class="carte-section active" id="tab-bulles">
-    <div class="cat-header">
-      <span class="cat-eyebrow">Bulles & Fêtes</span>
-      <h2 class="cat-title">Bulles</h2>
-      <div class="cat-divider"><span>✦</span></div>
-    </div>
-    <div class="wine-list">
-      <div class="wine-item">
-        <div class="wine-name">Coupe de Cava</div>
-        <div class="wine-price">10,00€</div>
-      </div>
-      <div class="wine-item">
-        <div class="wine-name">Coupe de Champagne</div>
-        <div class="wine-price">13,00€</div>
-      </div>
-      <div class="wine-item">
-        <div class="wine-name">Laurent Perrier<span class="region">Brut</span></div>
-        <div class="wine-price">75,00€</div>
-      </div>
-      <div class="wine-item">
-        <div class="wine-name">Veuve Clicquot<span class="region">Brut</span></div>
-        <div class="wine-price">80,00€</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- NOTRE VIN MAISON -->
-  <div class="carte-section" id="tab-maison">
-    <div class="cat-header">
-      <span class="cat-eyebrow">Nos Sélections</span>
-      <h2 class="cat-title">Notre Vin Maison</h2>
-      <div class="cat-divider"><span>✦</span></div>
-    </div>
-    <div class="house-wines">
-      <div class="house-wine-item">
-        <div class="hw-type">Rouge</div>
-        <div class="hw-formats">
-          <div class="hw-format">
-            <span class="hw-size">Un verre</span>
-            <span class="hw-price">5,50€</span>
-          </div>
-          <div class="hw-format">
-            <span class="hw-size">Un quart</span>
-            <span class="hw-price">10,00€</span>
-          </div>
-          <div class="hw-format">
-            <span class="hw-size">Un demi</span>
-            <span class="hw-price">20,00€</span>
-          </div>
-        </div>
-      </div>
-      <div class="house-wine-item">
-        <div class="hw-type">Blanc</div>
-        <div class="hw-formats">
-          <div class="hw-format">
-            <span class="hw-size">Un verre</span>
-            <span class="hw-price">5,50€</span>
-          </div>
-          <div class="hw-format">
-            <span class="hw-size">Un quart</span>
-            <span class="hw-price">10,00€</span>
-          </div>
-          <div class="hw-format">
-            <span class="hw-size">Un demi</span>
-            <span class="hw-price">20,00€</span>
-          </div>
-        </div>
-      </div>
-      <div class="house-wine-item">
-        <div class="hw-type">Rosé</div>
-        <div class="hw-formats">
-          <div class="hw-format">
-            <span class="hw-size">Un verre</span>
-            <span class="hw-price">5,50€</span>
-          </div>
-          <div class="hw-format">
-            <span class="hw-size">Un quart</span>
-            <span class="hw-price">10,00€</span>
-          </div>
-          <div class="hw-format">
-            <span class="hw-size">Un demi</span>
-            <span class="hw-price">20,00€</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- VINS ROUGES -->
-  <div class="carte-section" id="tab-rouges">
-    <div class="cat-header">
-      <span class="cat-eyebrow">Couleur & Corps</span>
-      <h2 class="cat-title">Vins Rouges</h2>
-      <div class="cat-divider"><span>✦</span></div>
-    </div>
-    <div class="wine-list">
-      <div class="wine-item">
-        <div class="wine-name">Château Franc-Baudron-Recto 2022<span class="region">AOP Bordeaux</span></div>
-        <div class="wine-price">27,00€</div>
-      </div>
-      <div class="wine-item">
-        <div class="wine-name">Château Paloumey - Plume de Paloumey 2022<span class="region">AOP Haut-Médoc Cru bourgeois</span></div>
-        <div class="wine-price">50,00€</div>
-      </div>
-      <div class="wine-item">
-        <div class="wine-name">Château de la Grenière 2020<span class="region">AOP Lussac Saint-Emilion</span></div>
-        <div class="wine-price">40,00€</div>
-      </div>
-      <div class="wine-item">
-        <div class="wine-name">Vignoble Dampt Frères- Chevalier d'Éon 2022<span class="region">AOP Bourgogne Pinot Noir</span></div>
-        <div class="wine-price">46,00€</div>
-      </div>
-      <div class="wine-item">
-        <div class="wine-name">Domaine de la Ligière - Classique 2022<span class="region">AOP Vacqueyras</span></div>
-        <div class="wine-price">40,00€</div>
-      </div>
-      <div class="wine-item">
-        <div class="wine-name">Château de Montfrin 2021<span class="region">Côtes du Rhône</span></div>
-        <div class="wine-price">29,00€</div>
-      </div>
-      <div class="wine-item">
-        <div class="wine-name">Les Équilibristes-Hirsute 2022<span class="region">AOP Bergerac rouge</span></div>
-        <div class="wine-price">35,00€</div>
-      </div>
-      <div class="wine-item">
-        <div class="wine-name">Sangiovese-Primitivo Marabelle 2023</div>
-        <div class="wine-price">32,00€</div>
-      </div>
-      <div class="wine-item">
-        <div class="wine-name">Marbelle 2023<span class="region">DOC Montepulciano d'abruzzo</span></div>
-        <div class="wine-price">32,00€</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- VINS BLANCS -->
-  <div class="carte-section" id="tab-blancs">
-    <div class="cat-header">
-      <span class="cat-eyebrow">Pureté & Délice</span>
-      <h2 class="cat-title">Vins Blancs</h2>
-      <div class="cat-divider"><span>✦</span></div>
-    </div>
-    <div class="wine-list">
-      <div class="wine-item">
-        <div class="wine-name">Vignoble Dampt Frères-Tonnerre 2023<span class="region">AOP Bourgogne Tonnerre</span></div>
-        <div class="wine-price">40,00€</div>
-      </div>
-      <div class="wine-item">
-        <div class="wine-name">Château Guilhem-Sauvignon Blanc Vineaste 2024<span class="region">IGP Pays d'oc</span></div>
-        <div class="wine-price">27,00€</div>
-      </div>
-      <div class="wine-item">
-        <div class="wine-name">Les Athlètes du vin-Chenin Blanc 2024<span class="region">Vin de Loire</span></div>
-        <div class="wine-price">32,00€</div>
-      </div>
-      <div class="wine-item">
-        <div class="wine-name">Château de Montfrin-A la Rêverie 2024/2025<span class="region">AOP Côtes du Rhône Blanc</span></div>
-        <div class="wine-price">34,00€</div>
-      </div>
-      <div class="wine-item">
-        <div class="wine-name">Château Guilhem- Vignonier Vineaste 2024<span class="region">IGP Pays d'Oc</span></div>
-        <div class="wine-price">27,00€</div>
-      </div>
-      <div class="wine-item">
-        <div class="wine-name">Vignoble Dampt Frères-Chablis 2022</div>
-        <div class="wine-price">48,00€</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- VINS ROSÉS -->
-  <div class="carte-section" id="tab-roses">
-    <div class="cat-header">
-      <span class="cat-eyebrow">Douceur & Légèreté</span>
-      <h2 class="cat-title">Vins Rosés</h2>
-      <div class="cat-divider"><span>✦</span></div>
-    </div>
-    <div class="wine-list">
-      <div class="wine-item">
-        <div class="wine-name">Maison Ventenac-La condamine 2024<span class="region">IGP Pays D'oc</span></div>
-        <div class="wine-price">25,00€</div>
-      </div>
-    </div>
-  </div>
-
+<!-- BULLES -->
+<div class="carte-section active" id="tab-bulles">
+<div class="cat-header">
+<span class="cat-eyebrow"><span data-i18n="t12">Bulles &amp; Fêtes</span></span>
+<h2 class="cat-title"><span data-i18n="t13">Bulles</span></h2>
+<div class="cat-divider"><span>✦</span></div>
+</div>
+<div class="wine-list">
+<div class="wine-item">
+<div class="wine-name"><span data-i18n="t14">Coupe de Cava</span></div>
+<div class="wine-price">10,00€</div>
+</div>
+<div class="wine-item">
+<div class="wine-name"><span data-i18n="t15">Coupe de Champagne</span></div>
+<div class="wine-price">13,00€</div>
+</div>
+<div class="wine-item">
+<div class="wine-name">Laurent Perrier<span class="region">Brut</span></div>
+<div class="wine-price">75,00€</div>
+</div>
+<div class="wine-item">
+<div class="wine-name">Veuve Clicquot<span class="region">Brut</span></div>
+<div class="wine-price">80,00€</div>
+</div>
+</div>
+</div>
+<!-- NOTRE VIN MAISON -->
+<div class="carte-section" id="tab-maison">
+<div class="cat-header">
+<span class="cat-eyebrow"><span data-i18n="t16">Nos Sélections</span></span>
+<h2 class="cat-title"><span data-i18n="t17">Notre Vin Maison</span></h2>
+<div class="cat-divider"><span>✦</span></div>
+</div>
+<div class="house-wines">
+<div class="house-wine-item">
+<div class="hw-type"><span data-i18n="t18">Rouge</span></div>
+<div class="hw-formats">
+<div class="hw-format">
+<span class="hw-size"><span data-i18n="t19">Un verre</span></span>
+<span class="hw-price">5,50€</span>
+</div>
+<div class="hw-format">
+<span class="hw-size"><span data-i18n="t20">Un quart</span></span>
+<span class="hw-price">10,00€</span>
+</div>
+<div class="hw-format">
+<span class="hw-size"><span data-i18n="t21">Un demi</span></span>
+<span class="hw-price">20,00€</span>
+</div>
+</div>
+</div>
+<div class="house-wine-item">
+<div class="hw-type"><span data-i18n="t22">Blanc</span></div>
+<div class="hw-formats">
+<div class="hw-format">
+<span class="hw-size"><span data-i18n="t23">Un verre</span></span>
+<span class="hw-price">5,50€</span>
+</div>
+<div class="hw-format">
+<span class="hw-size"><span data-i18n="t24">Un quart</span></span>
+<span class="hw-price">10,00€</span>
+</div>
+<div class="hw-format">
+<span class="hw-size"><span data-i18n="t25">Un demi</span></span>
+<span class="hw-price">20,00€</span>
+</div>
+</div>
+</div>
+<div class="house-wine-item">
+<div class="hw-type">Rosé</div>
+<div class="hw-formats">
+<div class="hw-format">
+<span class="hw-size"><span data-i18n="t26">Un verre</span></span>
+<span class="hw-price">5,50€</span>
+</div>
+<div class="hw-format">
+<span class="hw-size"><span data-i18n="t27">Un quart</span></span>
+<span class="hw-price">10,00€</span>
+</div>
+<div class="hw-format">
+<span class="hw-size"><span data-i18n="t28">Un demi</span></span>
+<span class="hw-price">20,00€</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- VINS ROUGES -->
+<div class="carte-section" id="tab-rouges">
+<div class="cat-header">
+<span class="cat-eyebrow"><span data-i18n="t29">Couleur &amp; Corps</span></span>
+<h2 class="cat-title"><span data-i18n="t30">Vins Rouges</span></h2>
+<div class="cat-divider"><span>✦</span></div>
+</div>
+<div class="wine-list">
+<div class="wine-item">
+<div class="wine-name">Château Franc-Baudron-Recto 2022<span class="region">AOP Bordeaux</span></div>
+<div class="wine-price">27,00€</div>
+</div>
+<div class="wine-item">
+<div class="wine-name">Château Paloumey - Plume de Paloumey 2022<span class="region">AOP Haut-Médoc Cru bourgeois</span></div>
+<div class="wine-price">50,00€</div>
+</div>
+<div class="wine-item">
+<div class="wine-name">Château de la Grenière 2020<span class="region">AOP Lussac Saint-Emilion</span></div>
+<div class="wine-price">40,00€</div>
+</div>
+<div class="wine-item">
+<div class="wine-name">Vignoble Dampt Frères- Chevalier d'Éon 2022<span class="region">AOP Bourgogne Pinot Noir</span></div>
+<div class="wine-price">46,00€</div>
+</div>
+<div class="wine-item">
+<div class="wine-name">Domaine de la Ligière - Classique 2022<span class="region">AOP Vacqueyras</span></div>
+<div class="wine-price">40,00€</div>
+</div>
+<div class="wine-item">
+<div class="wine-name">Château de Montfrin 2021<span class="region">Côtes du Rhône</span></div>
+<div class="wine-price">29,00€</div>
+</div>
+<div class="wine-item">
+<div class="wine-name">Les Équilibristes-Hirsute 2022<span class="region">AOP Bergerac rouge</span></div>
+<div class="wine-price">35,00€</div>
+</div>
+<div class="wine-item">
+<div class="wine-name">Sangiovese-Primitivo Marabelle 2023</div>
+<div class="wine-price">32,00€</div>
+</div>
+<div class="wine-item">
+<div class="wine-name">Marbelle 2023<span class="region">DOC Montepulciano d'abruzzo</span></div>
+<div class="wine-price">32,00€</div>
+</div>
+</div>
+</div>
+<!-- VINS BLANCS -->
+<div class="carte-section" id="tab-blancs">
+<div class="cat-header">
+<span class="cat-eyebrow"><span data-i18n="t31">Pureté &amp; Délice</span></span>
+<h2 class="cat-title"><span data-i18n="t32">Vins Blancs</span></h2>
+<div class="cat-divider"><span>✦</span></div>
+</div>
+<div class="wine-list">
+<div class="wine-item">
+<div class="wine-name">Vignoble Dampt Frères-Tonnerre 2023<span class="region">AOP Bourgogne Tonnerre</span></div>
+<div class="wine-price">40,00€</div>
+</div>
+<div class="wine-item">
+<div class="wine-name">Château Guilhem-Sauvignon Blanc Vineaste 2024<span class="region">IGP Pays d'oc</span></div>
+<div class="wine-price">27,00€</div>
+</div>
+<div class="wine-item">
+<div class="wine-name">Les Athlètes du vin-Chenin Blanc 2024<span class="region">Vin de Loire</span></div>
+<div class="wine-price">32,00€</div>
+</div>
+<div class="wine-item">
+<div class="wine-name">Château de Montfrin-A la Rêverie 2024/2025<span class="region">AOP Côtes du Rhône Blanc</span></div>
+<div class="wine-price">34,00€</div>
+</div>
+<div class="wine-item">
+<div class="wine-name">Château Guilhem- Vignonier Vineaste 2024<span class="region">IGP Pays d'Oc</span></div>
+<div class="wine-price">27,00€</div>
+</div>
+<div class="wine-item">
+<div class="wine-name">Vignoble Dampt Frères-Chablis 2022</div>
+<div class="wine-price">48,00€</div>
+</div>
+</div>
+</div>
+<!-- VINS ROSÉS -->
+<div class="carte-section" id="tab-roses">
+<div class="cat-header">
+<span class="cat-eyebrow"><span data-i18n="t33">Douceur &amp; Légèreté</span></span>
+<h2 class="cat-title"><span data-i18n="t34">Vins Rosés</span></h2>
+<div class="cat-divider"><span>✦</span></div>
+</div>
+<div class="wine-list">
+<div class="wine-item">
+<div class="wine-name">Maison Ventenac-La condamine 2024<span class="region">IGP Pays D'oc</span></div>
+<div class="wine-price">25,00€</div>
+</div>
+</div>
+</div>
 </div><!-- end carte-wrap -->
-
 <!-- FOOTER -->
 <footer>
-  <div class="footer-bottom">
-    <p>© 2024 Bébé, Chouchou et Moi</p>
-    <p>Rue de Bruxelles 4, 1300 Wavre • TVA : BE0760971136</p>
-  </div>
+<div class="footer-bottom">
+<p>© 2024 Bébé, Chouchou et Moi</p>
+<p><span data-i18n="t35">Rue de Bruxelles 4, 1300 Wavre • TVA : BE0760971136</span></p>
+</div>
 </footer>
-
 <!-- FLOAT CALL -->
-<a href="tel:+3210241755" class="float-call" aria-label="Appeler">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 16.5z"/></svg>
+<a aria-label="Appeler" class="float-call" href="tel:+3210241755">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 16.5z"></path></svg>
 </a>
-
 <script>
 // NAV
 const nav = document.getElementById('nav');
@@ -786,6 +786,46 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 </script>
-
-</body>
+<script>
+(function(){
+  const T = {"fr": {"t1": "Notre Carte des Vins — Bébé, Chouchou et Moi", "t2": "Épicerie · Restaurant", "t3": "Accueil", "t4": "Carte", "t5": "Notre Carte des Vins", "t6": "Une sélection de vins fins pour sublimer vos moments", "t7": "Bulles", "t8": "Notre Maison", "t9": "Rouges", "t10": "Blancs", "t11": "Rosés", "t12": "Bulles & Fêtes", "t13": "Bulles", "t14": "Coupe de Cava", "t15": "Coupe de Champagne", "t16": "Nos Sélections", "t17": "Notre Vin Maison", "t18": "Rouge", "t19": "Un verre", "t20": "Un quart", "t21": "Un demi", "t22": "Blanc", "t23": "Un verre", "t24": "Un quart", "t25": "Un demi", "t26": "Un verre", "t27": "Un quart", "t28": "Un demi", "t29": "Couleur & Corps", "t30": "Vins Rouges", "t31": "Pureté & Délice", "t32": "Vins Blancs", "t33": "Douceur & Légèreté", "t34": "Vins Rosés", "t35": "Rue de Bruxelles 4, 1300 Wavre • TVA : BE0760971136"}, "nl": {"t1": "Onze Wijnkaart — Bébé, Chouchou et Moi", "t2": "Kruidenierszaak · Restaurant", "t3": "Home", "t4": "Kaart", "t5": "Onze Wijnkaart", "t6": "Een selectie van fijne wijnen om uw momenten te verheffen", "t7": "Bubbels", "t8": "Ons Huis", "t9": "Rode", "t10": "Witte", "t11": "Rosé", "t12": "Bubbels & Feesten", "t13": "Bubbels", "t14": "Cava-glas", "t15": "Champagneglas", "t16": "Onze Selecties", "t17": "Onze Huiswijn", "t18": "Rood", "t19": "Een glas", "t20": "Een kwart", "t21": "Een halve", "t22": "Wit", "t23": "Een glas", "t24": "Een kwart", "t25": "Een halve", "t26": "Een glas", "t27": "Een kwart", "t28": "Een halve", "t29": "Kleur & Lichaam", "t30": "Rode Wijnen", "t31": "Zuiverheid & Genot", "t32": "Witte Wijnen", "t33": "Zachtheid & Lichtheid", "t34": "Rosé Wijnen", "t35": "Rue de Bruxelles 4, 1300 Waver • BTW : BE0760971136"}, "en": {"t1": "Our Wine List — Bébé, Chouchou et Moi", "t2": "Grocery · Restaurant", "t3": "Home", "t4": "Menu", "t5": "Our Wine List", "t6": "A selection of fine wines to elevate your moments", "t7": "Bubbles", "t8": "Our House", "t9": "Red", "t10": "White", "t11": "Rosé", "t12": "Bubbles & Celebrations", "t13": "Bubbles", "t14": "Glass of Cava", "t15": "Glass of Champagne", "t16": "Our Selections", "t17": "Our House Wine", "t18": "Red", "t19": "A glass", "t20": "A quarter", "t21": "A half", "t22": "White", "t23": "A glass", "t24": "A quarter", "t25": "A half", "t26": "A glass", "t27": "A quarter", "t28": "A half", "t29": "Color & Body", "t30": "Red Wines", "t31": "Purity & Delight", "t32": "White Wines", "t33": "Sweetness & Lightness", "t34": "Rosé Wines", "t35": "Rue de Bruxelles 4, 1300 Wavre • VAT: BE0760971136"}};
+  function getLang(){
+    let l = localStorage.getItem('lang');
+    if(l && T[l]) return l;
+    const nav = (navigator.language||'fr').toLowerCase();
+    if(nav.startsWith('nl')) return 'nl';
+    if(nav.startsWith('en')) return 'en';
+    return 'fr';
+  }
+  function apply(lang){
+    document.documentElement.lang = lang;
+    const dict = T[lang] || T.fr;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if(dict[k] !== undefined) el.textContent = dict[k];
+    });
+    document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+      el.getAttribute('data-i18n-attr').split(';').forEach(pair => {
+        const [attr,key] = pair.split(':');
+        if(dict[key] !== undefined) el.setAttribute(attr, dict[key]);
+      });
+    });
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+    });
+    localStorage.setItem('lang', lang);
+  }
+  function init(){
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.addEventListener('click', function(e){
+        e.preventDefault();
+        apply(this.getAttribute('data-lang'));
+      });
+    });
+    apply(getLang());
+  }
+  if(document.readyState !== 'loading') init();
+  else document.addEventListener('DOMContentLoaded', init);
+})();
+</script></body>
 </html>
