@@ -1591,5 +1591,310 @@ document.addEventListener("keydown",function(e){ const lb=document.getElementByI
   io.observe(statsEl);
 })();
 </script>
+
+<!-- ── CHATBOT IA LOCAL (pas d'API) ─────────────────────── -->
+<div id="chat-widget">
+  <div id="chat-toggle" class="chat-toggle" aria-label="Ouvrir le chat">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </div>
+  <div id="chat-box" class="chat-box">
+    <div class="chat-header">
+      <div class="chat-header-content">
+        <svg class="chat-icon" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-6 0-8 3-8 3v3h16v-3s-2-3-8-3z"/></svg>
+        <h3>Assistant IA</h3>
+      </div>
+      <button id="chat-close" class="chat-close">&times;</button>
+    </div>
+    <div id="chat-messages" class="chat-messages"></div>
+    <div class="chat-input-wrap">
+      <input type="text" id="chat-input" placeholder="Vos questions..." />
+      <button id="chat-send" class="chat-send">→</button>
+    </div>
+  </div>
+</div>
+
+<style>
+#chat-widget {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 9999 !important;
+  font-family: 'EB Garamond', Georgia, serif;
+}
+
+.chat-toggle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--gold) !important;
+  color: var(--ink) !important;
+  border: 3px solid var(--gold2) !important;
+  cursor: pointer;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 24px rgba(200, 164, 90, 0.6);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative !important;
+  z-index: 9999 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.chat-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 32px rgba(200, 164, 90, 0.8);
+}
+
+.chat-toggle svg {
+  width: 32px;
+  height: 32px;
+}
+
+.chat-box {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 360px;
+  height: 500px;
+  background: var(--ink2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.chat-box.open {
+  display: flex;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.chat-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chat-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.chat-header h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.chat-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--gold);
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chat-message {
+  padding: 12px 14px;
+  margin-bottom: 4px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 85%;
+  word-wrap: break-word;
+}
+
+.chat-message.user {
+  background: var(--gold);
+  color: var(--ink);
+  align-self: flex-end;
+}
+
+.chat-message.assistant {
+  background: var(--ink3);
+  color: var(--cream);
+  align-self: flex-start;
+  border-left: 2px solid var(--gold);
+}
+
+.chat-message.loading {
+  font-style: italic;
+  color: var(--muted);
+}
+
+.chat-input-wrap {
+  padding: 12px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 8px;
+}
+
+#chat-input {
+  flex: 1;
+  background: var(--ink3);
+  border: 1px solid var(--border);
+  color: var(--cream);
+  padding: 10px;
+  border-radius: 6px;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 0.9rem;
+}
+
+#chat-input::placeholder {
+  color: var(--muted);
+}
+
+#chat-input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.chat-send {
+  width: 36px;
+  height: 36px;
+  background: var(--gold);
+  color: var(--ink);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.chat-send:hover {
+  background: var(--gold2);
+}
+
+@media (max-width: 640px) {
+  .chat-box {
+    width: 320px;
+    height: 450px;
+  }
+  
+  .chat-message {
+    max-width: 90%;
+  }
+}
+</style>
+
+<script>
+(function(){
+  const chatToggle = document.getElementById("chat-toggle");
+  const chatClose = document.getElementById("chat-close");
+  const chatBox = document.getElementById("chat-box");
+  const chatInput = document.getElementById("chat-input");
+  const chatSend = document.getElementById("chat-send");
+  const chatMessages = document.getElementById("chat-messages");
+
+  const responses = {
+    reservation: "Pour reserver une table, appelez-nous au 010 24 17 55 ou passez directement au restaurant. Nous sommes heureux de vous accueillir!",
+    horaire: "Nos horaires: Mardi-Jeudi 11h30-14h30 et 18h-22h30. Vendredi-Samedi 11h30-14h30 et 18h-23h. Dimanche 12h-15h et 18h-22h. Ferme le lundi.",
+    menu: "Consultez notre menu complet sur la page Menu. Nous proposons des plats belges traditionnels et cuisine francaise. N'hesitez pas a nous appeler pour les recommandations!",
+    allergie: "Pour les allergies et restrictions alimentaires, contactez-nous directement au 010 24 17 55. Notre equipe saura vous proposer les meilleures alternatives.",
+    prix: "Nos prix sont tres competitifs. Consultez le menu pour les details. Pour les menus speciaux ou groupes, nous vous invitons a nous contacter.",
+    adresse: "Nous sommes situes a Wavre, Belgique. Pour l'adresse exacte et l'itineraire, appelez-nous au 010 24 17 55.",
+    wifi: "Oui, nous disposons du wifi gratuit pour notre clientele. N'hesitez pas a demander le mot de passe en arrivant!",
+    parking: "Un parking est disponible a proximite du restaurant. Pour les details, contactez-nous.",
+    groupe: "Pour les reservations de groupe, nous vous recommandons d'appeler directement au 010 24 17 55 pour discuter des arrangements.",
+    default: "Bonjour! Je suis l'assistant IA de Bebes, Chouchou et Moi. Comment puis-je vous aider? Vous pouvez me poser des questions sur nos horaires, le menu, les reservations, etc."
+  };
+
+  function getResponse(text) {
+    const lower = text.toLowerCase();
+    
+    if (lower.includes("reserve") || lower.includes("table") || lower.includes("reservation")) {
+      return responses.reservation;
+    } else if (lower.includes("horaire") || lower.includes("ouvert") || lower.includes("ferme")) {
+      return responses.horaire;
+    } else if (lower.includes("menu") || lower.includes("plat") || lower.includes("manger")) {
+      return responses.menu;
+    } else if (lower.includes("allergie") || lower.includes("gluten") || lower.includes("vegetarien")) {
+      return responses.allergie;
+    } else if (lower.includes("prix") || lower.includes("cout") || lower.includes("tarif")) {
+      return responses.prix;
+    } else if (lower.includes("adresse") || lower.includes("lieu") || lower.includes("localisation")) {
+      return responses.adresse;
+    } else if (lower.includes("wifi") || lower.includes("internet")) {
+      return responses.wifi;
+    } else if (lower.includes("parking") || lower.includes("voiture")) {
+      return responses.parking;
+    } else if (lower.includes("groupe") || lower.includes("event") || lower.includes("seminaire")) {
+      return responses.groupe;
+    }
+    return responses.default;
+  }
+
+  chatToggle.addEventListener("click", function() {
+    chatBox.classList.toggle("open");
+  });
+  
+  chatClose.addEventListener("click", function() {
+    chatBox.classList.remove("open");
+  });
+
+  function sendMessage() {
+    const text = chatInput.value.trim();
+    if (!text) return;
+
+    const userMsg = document.createElement("div");
+    userMsg.className = "chat-message user";
+    userMsg.textContent = text;
+    chatMessages.appendChild(userMsg);
+    chatInput.value = "";
+
+    const loadingMsg = document.createElement("div");
+    loadingMsg.className = "chat-message assistant loading";
+    loadingMsg.textContent = "Reflexion...";
+    chatMessages.appendChild(loadingMsg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    setTimeout(function() {
+      loadingMsg.remove();
+      const response = getResponse(text);
+      const assistantMsg = document.createElement("div");
+      assistantMsg.className = "chat-message assistant";
+      assistantMsg.textContent = response;
+      chatMessages.appendChild(assistantMsg);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 500);
+  }
+
+  chatSend.addEventListener("click", sendMessage);
+  chatInput.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") sendMessage();
+  });
+})();
+</script>
+
 </body>
 </html>
