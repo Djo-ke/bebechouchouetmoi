@@ -1592,7 +1592,7 @@ document.addEventListener("keydown",function(e){ const lb=document.getElementByI
 })();
 </script>
 
-<!-- ── CHATBOT IA LOCAL (pas d'API) ─────────────────────── -->
+<!-- ── CHATBOT IA LOCAL INTELLIGENT ─────────────────────── -->
 <div id="chat-widget">
   <div id="chat-toggle" class="chat-toggle" aria-label="Ouvrir le chat">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -1817,41 +1817,88 @@ document.addEventListener("keydown",function(e){ const lb=document.getElementByI
   const chatMessages = document.getElementById("chat-messages");
 
   const responses = {
-    reservation: "Pour reserver une table, appelez-nous au 010 24 17 55 ou passez directement au restaurant. Nous sommes heureux de vous accueillir!",
-    horaire: "Nos horaires: Mardi-Jeudi 11h30-14h30 et 18h-22h30. Vendredi-Samedi 11h30-14h30 et 18h-23h. Dimanche 12h-15h et 18h-22h. Ferme le lundi.",
-    menu: "Consultez notre menu complet sur la page Menu. Nous proposons des plats belges traditionnels et cuisine francaise. N'hesitez pas a nous appeler pour les recommandations!",
-    allergie: "Pour les allergies et restrictions alimentaires, contactez-nous directement au 010 24 17 55. Notre equipe saura vous proposer les meilleures alternatives.",
-    prix: "Nos prix sont tres competitifs. Consultez le menu pour les details. Pour les menus speciaux ou groupes, nous vous invitons a nous contacter.",
-    adresse: "Nous sommes situes a Wavre, Belgique. Pour l'adresse exacte et l'itineraire, appelez-nous au 010 24 17 55.",
-    wifi: "Oui, nous disposons du wifi gratuit pour notre clientele. N'hesitez pas a demander le mot de passe en arrivant!",
-    parking: "Un parking est disponible a proximite du restaurant. Pour les details, contactez-nous.",
-    groupe: "Pour les reservations de groupe, nous vous recommandons d'appeler directement au 010 24 17 55 pour discuter des arrangements.",
-    default: "Bonjour! Je suis l'assistant IA de Bebes, Chouchou et Moi. Comment puis-je vous aider? Vous pouvez me poser des questions sur nos horaires, le menu, les reservations, etc."
+    reservation: [
+      "Pour reserver une table, appelez-nous au 010 24 17 55. Vous pouvez aussi passer directement au restaurant.",
+      "Reservations par telephone au 010 24 17 55. Nous accueillons tous les jours sauf le lundi.",
+      "Vous pouvez reserver par telephone: 010 24 17 55 ou venir directement au restaurant."
+    ],
+    horaires: [
+      "Nos horaires: Mardi-Jeudi 11h30-14h30 et 18h-22h30. Vendredi-Samedi 11h30-14h30 et 18h-23h. Dimanche 12h-15h et 18h-22h. Ferme le lundi.",
+      "Lundi: Ferme. Mardi-Jeudi: 11h30-14h30 et 18h-22h30. Vendredi-Samedi: 11h30-14h30 et 18h-23h. Dimanche: 12h-15h et 18h-22h.",
+      "Ouverts tous les jours sauf lundi. Appelez 010 24 17 55 pour plus de details."
+    ],
+    menu: [
+      "Consultez notre menu complet sur la page Menu du site. Nous proposons des plats belges traditionnels et cuisine francaise de qualite.",
+      "Notre menu offre une belle selection de plats belges et francais. Pour les details, visitez la page Menu du site.",
+      "Menus disponibles: Carte principale, Vins, Boissons. Consultez le site ou appelez 010 24 17 55."
+    ],
+    allergie: [
+      "Pour les allergies et restrictions alimentaires, appelez-nous au 010 24 17 55. Notre equipe peut adapter les plats.",
+      "Vegetarien, vegan, allergies: contactez-nous au 010 24 17 55 pour les options disponibles.",
+      "Nous pouvons adapter les menus selon vos restrictions. Veuillez appeler 010 24 17 55."
+    ],
+    prix: [
+      "Nos prix sont competitifs. Consultez le menu pour les tarifs. Pour des questions specifiques, appelez 010 24 17 55.",
+      "Les tarifs varient selon les plats. Visitez la page Menu pour voir les prix ou appelez-nous.",
+      "Nous proposons des menus a tous les budgets. Appelez pour les offres speciales: 010 24 17 55."
+    ],
+    contact: [
+      "Telephone: 010 24 17 55. Nous sommes a Wavre, Belgique. Consultez la page Contact pour l'adresse exacte.",
+      "Pour nous contacter: 010 24 17 55 (telephone) ou visitez la page Contact du site.",
+      "Contact direct: 010 24 17 55. Pour l'adresse et plus d'infos, consultez la page Contact."
+    ],
+    wifi: [
+      "Oui, nous disposons du WiFi gratuit pour notre clientele. Demandez le mot de passe a l'arrivee.",
+      "WiFi gratuit disponible. Demandez simplement le code d'acces au personnel."
+    ],
+    parking: [
+      "Un parking est disponible a proximite du restaurant. Pour les details, appelez 010 24 17 55.",
+      "Parking facilement accessible pres du restaurant. Appelez pour les details si necessaire."
+    ],
+    groupe: [
+      "Pour les reservations de groupe ou evenements, appelez 010 24 17 55 pour discuter des arrangements.",
+      "Nous accueillons les groupes et seminaires. Contactez-nous au 010 24 17 55 pour les tarifs.",
+      "Vous organisez un evenement? Appelez 010 24 17 55 pour les details et offres speciaux groupes."
+    ],
+    ambiance: [
+      "Notre restaurant offre une ambiance chaleureuse et elegante, parfaite pour tous vos moments.",
+      "Ambiance accueillante et raffinee pour un bon moment en famille ou entre amis."
+    ],
+    default: [
+      "Bonjour! Je suis l'assistant IA de Bebes, Chouchou et Moi. Vous avez des questions sur les reservations, horaires, menu, ou allergies? Je peux vous aider!",
+      "Comment puis-je vous aider? Vous pouvez me poser des questions sur le restaurant, le menu, les horaires, ou appeler 010 24 17 55."
+    ]
   };
+
+  function getRandomResponse(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
 
   function getResponse(text) {
     const lower = text.toLowerCase();
     
-    if (lower.includes("reserve") || lower.includes("table") || lower.includes("reservation")) {
-      return responses.reservation;
-    } else if (lower.includes("horaire") || lower.includes("ouvert") || lower.includes("ferme")) {
-      return responses.horaire;
-    } else if (lower.includes("menu") || lower.includes("plat") || lower.includes("manger")) {
-      return responses.menu;
-    } else if (lower.includes("allergie") || lower.includes("gluten") || lower.includes("vegetarien")) {
-      return responses.allergie;
-    } else if (lower.includes("prix") || lower.includes("cout") || lower.includes("tarif")) {
-      return responses.prix;
-    } else if (lower.includes("adresse") || lower.includes("lieu") || lower.includes("localisation")) {
-      return responses.adresse;
+    if (lower.includes("reserv") || lower.includes("table") || lower.includes("booking")) {
+      return getRandomResponse(responses.reservation);
+    } else if (lower.includes("horaire") || lower.includes("heure") || lower.includes("ouvert") || lower.includes("ferme") || lower.includes("closed")) {
+      return getRandomResponse(responses.horaires);
+    } else if (lower.includes("menu") || lower.includes("plat") || lower.includes("manger") || lower.includes("food") || lower.includes("carte")) {
+      return getRandomResponse(responses.menu);
+    } else if (lower.includes("allergie") || lower.includes("gluten") || lower.includes("vegan") || lower.includes("vegetarien") || lower.includes("intoler")) {
+      return getRandomResponse(responses.allergie);
+    } else if (lower.includes("prix") || lower.includes("cout") || lower.includes("tarif") || lower.includes("combien") || lower.includes("price")) {
+      return getRandomResponse(responses.prix);
+    } else if (lower.includes("contact") || lower.includes("adresse") || lower.includes("lieu") || lower.includes("localis") || lower.includes("where")) {
+      return getRandomResponse(responses.contact);
     } else if (lower.includes("wifi") || lower.includes("internet")) {
-      return responses.wifi;
-    } else if (lower.includes("parking") || lower.includes("voiture")) {
-      return responses.parking;
-    } else if (lower.includes("groupe") || lower.includes("event") || lower.includes("seminaire")) {
-      return responses.groupe;
+      return getRandomResponse(responses.wifi);
+    } else if (lower.includes("parking") || lower.includes("voiture") || lower.includes("car")) {
+      return getRandomResponse(responses.parking);
+    } else if (lower.includes("groupe") || lower.includes("event") || lower.includes("seminaire") || lower.includes("party")) {
+      return getRandomResponse(responses.groupe);
+    } else if (lower.includes("ambiance") || lower.includes("atmosphere") || lower.includes("environnem")) {
+      return getRandomResponse(responses.ambiance);
     }
-    return responses.default;
+    return getRandomResponse(responses.default);
   }
 
   chatToggle.addEventListener("click", function() {
