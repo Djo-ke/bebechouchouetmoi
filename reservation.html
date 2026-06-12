@@ -33,13 +33,13 @@ nav.scrolled{background:rgba(13,13,13,0.97);height:64px;border-bottom:1px solid 
 .overlay.open{display:block;}
 
 /* PAGE LAYOUT */
-.resa-wrap{display:grid;grid-template-columns:400px 1fr;min-height:100vh;}
+.resa-wrap{display:grid;grid-template-columns:1fr;grid-template-rows:auto 1fr;min-height:100vh;}
 
 /* LEFT PANEL */
 .resa-left{
   background:var(--noir2);
-  padding:10rem 3rem 5rem;
-  border-right:1px solid rgba(201,168,76,0.12);
+  padding:5rem 3rem;
+  border-top:1px solid rgba(201,168,76,0.12);
   position:relative; overflow:hidden;
 }
 .resa-left::before{
@@ -83,7 +83,7 @@ nav.scrolled{background:rgba(13,13,13,0.97);height:64px;border-bottom:1px solid 
 .barestho-frame-wrap{
   flex:1;
   position:relative;
-  min-height:700px;
+  min-height:500px;
 }
 .barestho-frame-wrap iframe{
   width:100%; height:100%;
@@ -165,7 +165,18 @@ footer{background:var(--noir2);border-top:1px solid rgba(201,168,76,0.1);padding
 <a href="contact.html">Contact</a>
 </nav>
 <div class="resa-wrap">
-<!-- LEFT: infos -->
+<!-- TOP: Barestho iframe -->
+<div class="resa-right">
+<div class="resa-right-header">
+<span class="eyebrow"><span data-i18n="t32">Réservation en ligne</span></span>
+<p><span data-i18n="t33">Système de réservation sécurisé propulsé par Barestho</span></p>
+</div>
+<div class="barestho-frame-wrap">
+<iframe allowtransparency="true" loading="lazy" src="https://bebechouchouetmoi.reservation.barestho.com" title="Réservation Bébé Chouchou et Moi">
+</iframe>
+</div>
+</div>
+<!-- BOTTOM: infos -->
 <div class="resa-left">
 <div class="resa-left-inner">
 <span class="eyebrow">Bébé, Chouchou et Moi</span>
@@ -205,17 +216,6 @@ footer{background:var(--noir2);border-top:1px solid rgba(201,168,76,0.1);padding
 <p><span data-i18n="t31">Vous préférez réserver par téléphone ?</span></p>
 <a href="tel:+3210241755">010 24 17 55</a>
 </div>
-</div>
-</div>
-<!-- RIGHT: Barestho iframe -->
-<div class="resa-right">
-<div class="resa-right-header">
-<span class="eyebrow"><span data-i18n="t32">Réservation en ligne</span></span>
-<p><span data-i18n="t33">Système de réservation sécurisé propulsé par Barestho</span></p>
-</div>
-<div class="barestho-frame-wrap">
-<iframe allowtransparency="true" loading="lazy" src="https://bebechouchouetmoi.reservation.barestho.com" title="Réservation Bébé Chouchou et Moi">
-</iframe>
 </div>
 </div>
 </div>
